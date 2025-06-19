@@ -54,27 +54,6 @@ To build a modular, libre engine enabling developers to craft:
 
 ---
 
-## 🧩 Core Modules (Planned)
-
-* `SimulationEngine`: updates world state over time
-* `EntitySystem`: characters, factions, locations, traits
-* `EventSystem`: dynamic, emergent events
-* `MapRenderer`: interactive map + fog of war
-* `DecisionSystem`: AI and player choices
-* `GUIFramework`: windows, panels, dialogues
-* `SaveSystem`: full world persistence (JSON / binary)
-
----
-
-## 🧪 MVP Prototype Roadmap
-
-* [ ] Render zoomable world map (2D)
-* [ ] Create 2 factions with basic goals
-* [ ] Simulate population, movement, events
-* [ ] Create a basic GUI window with entity info
-* [ ] Enable save/load of simulation state
-
----
 
 ## 🔮 Inspirations
 
