@@ -31,6 +31,6 @@ This project focuses on modular simulation, emergent behavior, and custom UI log
 ## Getting Started
 
 ```bash
-git clone https://github.com/your-username/RoleWorld-Engine.git
+git clone https://github.com/Sofiane5900/Roleworld-Engine
 cd RoleWorld-Engine
 dotnet run
