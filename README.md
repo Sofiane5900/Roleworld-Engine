@@ -10,7 +10,7 @@ This project focuses on modular simulation, emergent behavior, and custom UI log
 ## Features
 
 - System-driven world simulation
-- Custom 2D GUI (no Unity / no Godot)
+- Custom 2D GUI
 - Entity-based design: characters, factions, traits
 - Strategic map navigation
 - Event-driven logic and AI decision-making
