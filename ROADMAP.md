@@ -8,7 +8,7 @@ This roadmap provides a step-by-step technical plan to implement the RoleWorld E
 
 > *Focus: Engine heartbeat, entity system, and simulation clock.*
 
-* [ ] Create application window (Silk.NET.Windowing)
+* [x] Create application window (Silk.NET.Windowing)
 * [ ] Implement the main loop (`HandleInput`, `UpdateSimulation`, `Render`)
 * [ ] Add time management: `Tick`, `DeltaTime`, and pause/resume
 * [ ] Build a minimal `Entity` structure with unique ID
