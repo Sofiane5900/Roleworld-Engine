@@ -6,6 +6,10 @@
 *.user
 *.sln.docstates
 
+
+# Ignore .idea inside Roleworld/ folder
+Roleworld/.idea/
+
 # Build results
 
 [Dd]ebug/
