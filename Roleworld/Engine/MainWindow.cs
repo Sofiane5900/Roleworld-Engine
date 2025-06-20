@@ -1,3 +1,4 @@
+using System.Drawing;
 using Silk.NET.OpenGL;
 
 namespace Roleworld.Engine;
@@ -21,6 +22,7 @@ public class MainWindow
         _mainWindow = Window.Create(mainWindowOption);
         
         _mainWindow.Load += OnLoad;
+        _mainWindow.Render += OnRender;
         
         _mainWindow.Run();
     }
@@ -29,6 +31,15 @@ public class MainWindow
     {
         _gl = _mainWindow.CreateOpenGL();
         Console.WriteLine("🟢Loading window..");
+        _gl.ClearColor(Color.CornflowerBlue);
+    }
+
+    
+    private static void OnUpdate(double deltaTime) { }
+
+    private static void OnRender(double deltaTime)
+    {
+        _gl.Clear(ClearBufferMask.ColorBufferBit);
     }
     
     
