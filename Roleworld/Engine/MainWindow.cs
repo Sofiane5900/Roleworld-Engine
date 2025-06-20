@@ -16,7 +16,14 @@ public class MainWindow
         };
         _mainWindow = Window.Create(mainWindowOption);
         _mainWindow.Run();
-    }  
+    }
+
+    private static void OnLoad() { }
+
+    private static void OnUpdate(double deltaTime) { }
+
+    private static void OnRender(double deltaTime) { }
+    
     
 
 }
