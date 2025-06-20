@@ -1,3 +1,24 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿using Silk.NET.Maths;
+using Silk.NET.Input;
+using Silk.NET.Windowing;
 
-Console.WriteLine("Hello, World!");
+namespace Roleworld
+{
+    public class Program
+    {
+        private static IWindow _mainWindow;
+        public static void Main(string[] args)
+        {
+            WindowOptions mainWindowOption = WindowOptions.Default with
+            {
+                Size = new Vector2D<int>(800,600),
+                Title = "Roleworld Engine"
+            };
+            _mainWindow = Window.Create(mainWindowOption);
+            _mainWindow.Run();
+        }  
+        
+    }
+}
+
+
