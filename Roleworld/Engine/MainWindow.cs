@@ -9,6 +9,8 @@ public class MainWindow
 
     public static void ConstructWindow()
     {
+        OnLoad();
+        
         WindowOptions mainWindowOption = WindowOptions.Default with
         {
             Size = new Vector2D<int>(800,600),
@@ -18,7 +20,10 @@ public class MainWindow
         _mainWindow.Run();
     }
 
-    private static void OnLoad() { }
+    private static void OnLoad()
+    {
+        Console.WriteLine("🟢Loading window..");
+    }
 
     private static void OnUpdate(double deltaTime) { }
 
