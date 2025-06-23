@@ -10,6 +10,7 @@ public class MainWindow
 {
     private static IWindow _mainWindow;
     private static GL _gl;
+    private static VertexArray _vertexArray;
 
     public static void ConstructWindow()
     {
@@ -27,11 +28,13 @@ public class MainWindow
         _mainWindow.Run();
     }
 
-    private static void OnLoad()
+    private static unsafe void OnLoad()
     {
         _gl = _mainWindow.CreateOpenGL();
         Console.WriteLine("🟢Loading window..");
         _gl.ClearColor(Color.CornflowerBlue);
+        _vertexArray = new VertexArray(_gl);
+        _vertexArray.DrawVertexBuffer();
     }
 
     
