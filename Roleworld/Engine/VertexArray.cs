@@ -6,7 +6,7 @@ public class VertexArray
 {
     private readonly GL _gl;
     private readonly uint _vao;
-    public uint Handle { get; }
+    public uint HandleVAO { get; }
 
     public VertexArray(GL gl)
     {
