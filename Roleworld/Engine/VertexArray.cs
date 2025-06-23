@@ -11,8 +11,8 @@ public class VertexArray
     public VertexArray(GL gl)
     {
         _gl = gl;
-        Handle = gl.GenVertexArray();
-        _gl.BindVertexArray(Handle);
+        HandleVAO = gl.GenVertexArray();
+        _gl.BindVertexArray(HandleVAO);
     }
 }
 
