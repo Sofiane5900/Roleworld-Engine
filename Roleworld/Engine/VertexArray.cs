@@ -1,6 +1,6 @@
 namespace Roleworld.Engine;
 
-public class VAO
+public class VertexArray
 {
     
 }
