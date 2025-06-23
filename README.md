@@ -1,4 +1,4 @@
-![RoleWorld Banner](https://i.imgur.com/L0B8qVS.png)
+![RoleWorld Banner](https://i.imgur.com/266JDTr.png)
 
 **RoleWorld Engine** is a 2D game engine written in C# using Silk.NET.  
 It is designed for building systemic, persistent, and GUI-based role-playing simulations — where the world evolves independently of the player.
