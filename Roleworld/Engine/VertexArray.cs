@@ -8,13 +8,13 @@ public class VertexArray
     private readonly uint _vao;
     private readonly uint _vbo;
     private readonly uint _ebo;
-    public uint HandleVAO { get; }
+    public uint Handle { get; }
 
     public VertexArray(GL gl)
     {
         _gl = gl;
-        HandleVAO = gl.GenVertexArray();
-        _gl.BindVertexArray(HandleVAO);
+        Handle = gl.GenVertexArray();
+        _gl.BindVertexArray(Handle);
 
         // VBO
         _vbo = _gl.GenBuffer();
@@ -22,7 +22,7 @@ public class VertexArray
 
         // EBO
         _ebo = _gl.GenBuffer();
-        _gl.BindBuffer(BufferTargetARB.ArrayBuffer, _ebo);
+        _gl.BindBuffer(BufferTargetARB.ElementArrayBuffer, _ebo);
     }
 
     public unsafe void DrawVertexBuffer()
@@ -60,5 +60,20 @@ public class VertexArray
                 buf,
                 BufferUsageARB.StaticDraw
             );
+
+        const uint positionLoc = 0;
+        _gl.EnableVertexAttribArray(positionLoc);
+        _gl.VertexAttribPointer(
+            positionLoc,
+            3,
+            VertexAttribPointerType.Float,
+            false,
+            3 * sizeof(float),
+            (void*)0
+        );
+
+        _gl.BindVertexArray(0);
+        _gl.BindBuffer(BufferTargetARB.ArrayBuffer, 0);
+        _gl.BindBuffer(BufferTargetARB.ElementArrayBuffer, 0);
     }
 }
