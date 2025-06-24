@@ -4,7 +4,7 @@ namespace Roleworld.Engine;
 
 public class Shader
 {
-    private static readonly GL _gl;
+    private readonly GL _gl;
     public uint Handle { get; }
     
     const string vertexCode =
@@ -27,6 +27,14 @@ public class Shader
         {
             out_color = vec4(1.0, 0.5, 0.2, 1.0);
         }";
+
+
+    public Shader(GL gl)
+    {
+        _gl = gl;
+        Handle = _gl.CreateShader(ShaderType.VertexShader);
+        _gl.ShaderSource(Handle, vertexCode);
+    }
     
     
 }
