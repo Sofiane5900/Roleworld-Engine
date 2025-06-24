@@ -71,5 +71,9 @@ public class VertexArray
             3 * sizeof(float),
             (void*)0
         );
+
+        _gl.BindVertexArray(0);
+        _gl.BindBuffer(BufferTargetARB.ArrayBuffer, 0);
+        _gl.BindBuffer(BufferTargetARB.ElementArrayBuffer, 0);
     }
 }
