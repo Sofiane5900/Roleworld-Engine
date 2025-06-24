@@ -18,7 +18,7 @@ public class VertexArray
 
         // VBO
         _vbo = _gl.GenBuffer();
-        _gl.BindBuffer(BufferTargetARB.ElementArrayBuffer, _vbo);
+        _gl.BindBuffer(BufferTargetARB.ArrayBuffer, _vbo);
 
         // EBO
         _ebo = _gl.GenBuffer();
