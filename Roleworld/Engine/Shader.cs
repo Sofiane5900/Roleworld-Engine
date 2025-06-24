@@ -6,7 +6,7 @@ public class Shader
 {
     private readonly GL _gl;
     public uint Handle { get; }
-    
+
     const string vertexCode =
         @"
             #version 330 core
@@ -17,8 +17,9 @@ public class Shader
             {
                 gl_Position = vec4(aPosition, 1.0);
             }";
-    
-    const string fragmentCode = @"
+
+    const string fragmentCode =
+        @"
         #version 330 core
 
         out vec4 out_color;
@@ -28,13 +29,20 @@ public class Shader
             out_color = vec4(1.0, 0.5, 0.2, 1.0);
         }";
 
-
     public Shader(GL gl)
     {
         _gl = gl;
         Handle = _gl.CreateShader(ShaderType.VertexShader);
         _gl.ShaderSource(Handle, vertexCode);
     }
-    
-    
+
+    public void Compile()
+    {
+        _gl.CompileShader(Handle);
+        _gl.GetShader(Handle, ShaderParameterName.CompileStatus, out int vStatus);
+        if (vStatus != (int)GLEnum.True)
+        {
+            throw new Exception("Vertex shader failed to compile: " + _gl.GetShaderInfoLog(Handle));
+        }
+    }
 }
