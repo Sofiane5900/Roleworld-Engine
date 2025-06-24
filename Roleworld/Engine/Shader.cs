@@ -5,7 +5,8 @@ namespace Roleworld.Engine;
 public class Shader
 {
     private readonly GL _gl;
-    public uint Handle { get; }
+    private static uint _program;
+    public uint Handle => _program;
 
     const string vertexCode =
         @"
@@ -32,27 +33,39 @@ public class Shader
     public Shader(GL gl)
     {
         _gl = gl;
-        Handle = _gl.CreateShader(ShaderType.VertexShader);
-        _gl.ShaderSource(Handle, vertexCode);
+
+        // Compile Vertex Shader
+        uint vertexShader = _gl.CreateShader(ShaderType.VertexShader);
+        _gl.ShaderSource(vertexShader, vertexCode);
+        _gl.CompileShader(vertexShader);
+        _gl.GetShader(vertexShader, ShaderParameterName.CompileStatus, out int vStatus);
+        if (vStatus != (int)GLEnum.True)
+            throw new Exception("Vertex shader failed: " + _gl.GetShaderInfoLog(vertexShader));
+
+        // Compile Fragment Shader
         uint fragmentShader = _gl.CreateShader(ShaderType.FragmentShader);
         _gl.ShaderSource(fragmentShader, fragmentCode);
-
         _gl.CompileShader(fragmentShader);
-
         _gl.GetShader(fragmentShader, ShaderParameterName.CompileStatus, out int fStatus);
         if (fStatus != (int)GLEnum.True)
-            throw new Exception(
-                "Fragment shader failed to compile: " + _gl.GetShaderInfoLog(fragmentShader)
-            );
-    }
+            throw new Exception("Fragment shader failed: " + _gl.GetShaderInfoLog(fragmentShader));
 
-    public void Compile()
-    {
-        _gl.CompileShader(Handle);
-        _gl.GetShader(Handle, ShaderParameterName.CompileStatus, out int vStatus);
-        if (vStatus != (int)GLEnum.True)
-        {
-            throw new Exception("Vertex shader failed to compile: " + _gl.GetShaderInfoLog(Handle));
-        }
+        // Create Program
+        _program = _gl.CreateProgram();
+        _gl.AttachShader(_program, vertexShader);
+        _gl.AttachShader(_program, fragmentShader);
+        _gl.LinkProgram(_program);
+
+        _gl.GetProgram(_program, ProgramPropertyARB.LinkStatus, out int lStatus);
+        if (lStatus != (int)GLEnum.True)
+            throw new Exception(
+                "Shader program failed to link: " + _gl.GetProgramInfoLog(_program)
+            );
+
+        // Clean up
+        _gl.DetachShader(_program, vertexShader);
+        _gl.DetachShader(_program, fragmentShader);
+        _gl.DeleteShader(vertexShader);
+        _gl.DeleteShader(fragmentShader);
     }
 }
