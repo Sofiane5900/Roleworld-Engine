@@ -18,11 +18,11 @@ public class VertexArray
 
         // VBO
         _vbo = _gl.GenBuffer();
-        _gl.BindBuffer(BufferTargetARB.ArrayBuffer, _vbo);
+        _gl.BindBuffer(BufferTargetARB.ElementArrayBuffer, _vbo);
 
         // EBO
         _ebo = _gl.GenBuffer();
-        _gl.BindBuffer(BufferTargetARB.ArrayBuffer, _ebo);
+        _gl.BindBuffer(BufferTargetARB.ElementArrayBuffer, _ebo);
     }
 
     public unsafe void DrawVertexBuffer()
