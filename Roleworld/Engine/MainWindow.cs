@@ -32,21 +32,21 @@ public class MainWindow
 
     private static unsafe void OnLoad()
     {
+        _gl = _mainWindow.CreateOpenGL();
         _shader = new Shader(_gl);
         _vertexArray = new VertexArray(_gl);
-
-        _gl = _mainWindow.CreateOpenGL();
         Console.WriteLine("🟢Loading window..");
         _gl.ClearColor(Color.CornflowerBlue);
-        _vertexArray = new VertexArray(_gl);
         _vertexArray.DrawVertexBuffer();
     }
 
     private static void OnUpdate(double deltaTime) { }
 
-    private static void OnRender(double deltaTime)
+    private static unsafe void OnRender(double deltaTime)
     {
         _gl.Clear(ClearBufferMask.ColorBufferBit);
-        ;
+        _gl.BindVertexArray(_vertexArray.Handle);
+        _gl.UseProgram(_shader.Handle);
+        _gl.DrawElements(PrimitiveType.Triangles, 6, DrawElementsType.UnsignedInt, (void*)0);
     }
 }
