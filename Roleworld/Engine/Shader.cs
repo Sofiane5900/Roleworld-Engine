@@ -1,7 +1,12 @@
+using Silk.NET.OpenGL;
+
 namespace Roleworld.Engine;
 
 public class Shader
 {
+    private static readonly GL _gl;
+    public uint Handle { get; }
+    
     const string vertexCode =
         @"
             #version 330 core

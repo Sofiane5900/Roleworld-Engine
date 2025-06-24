@@ -8,7 +8,7 @@ public class VertexArray
     private readonly uint _vao;
     private readonly uint _vbo;
     private readonly uint _ebo;
-    public uint HandleVAO { get; }
+    public uint Handle { get; }
 
     public VertexArray(GL gl)
     {
