@@ -34,6 +34,16 @@ public class Shader
         _gl = gl;
         Handle = _gl.CreateShader(ShaderType.VertexShader);
         _gl.ShaderSource(Handle, vertexCode);
+        uint fragmentShader = _gl.CreateShader(ShaderType.FragmentShader);
+        _gl.ShaderSource(fragmentShader, fragmentCode);
+
+        _gl.CompileShader(fragmentShader);
+
+        _gl.GetShader(fragmentShader, ShaderParameterName.CompileStatus, out int fStatus);
+        if (fStatus != (int)GLEnum.True)
+            throw new Exception(
+                "Fragment shader failed to compile: " + _gl.GetShaderInfoLog(fragmentShader)
+            );
     }
 
     public void Compile()
