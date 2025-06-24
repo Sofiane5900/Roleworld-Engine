@@ -60,5 +60,16 @@ public class VertexArray
                 buf,
                 BufferUsageARB.StaticDraw
             );
+
+        const uint positionLoc = 0;
+        _gl.EnableVertexAttribArray(positionLoc);
+        _gl.VertexAttribPointer(
+            positionLoc,
+            3,
+            VertexAttribPointerType.Float,
+            false,
+            3 * sizeof(float),
+            (void*)0
+        );
     }
 }
