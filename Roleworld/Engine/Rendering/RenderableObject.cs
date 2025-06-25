@@ -55,5 +55,31 @@ public class RenderableObject
                 );
             }
         }
+
+        // 4. Vertex Attributes
+        const int stride = 5 * sizeof(float);
+
+        unsafe
+        {
+            _gl.EnableVertexAttribArray(0); // aPosition
+            _gl.VertexAttribPointer(
+                0,
+                3,
+                VertexAttribPointerType.Float,
+                false,
+                (uint)stride,
+                (void*)0
+            );
+
+            _gl.EnableVertexAttribArray(1); // aTexCoords
+            _gl.VertexAttribPointer(
+                1,
+                2,
+                VertexAttribPointerType.Float,
+                false,
+                (uint)stride,
+                (void*)(3 * sizeof(float))
+            );
+        }
     }
 }
