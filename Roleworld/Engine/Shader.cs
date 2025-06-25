@@ -28,14 +28,18 @@ public class Shader
 
     const string fragmentCode =
         @"
-        #version 330 core
+                       #version 330 core
 
-        out vec4 out_color;
+                // Receive the input from the vertex shader in an attribute
+                in vec2 frag_texCoords;
 
-        void main()
-        {
-            out_color = vec4(1.0, 0.5, 0.2, 1.0);
-        }";
+                out vec4 out_color;
+
+                void main()
+                {
+                    // This will allow us to see the texture coordinates in action!
+                    out_color = vec4(frag_texCoords.x, frag_texCoords.y, 0.0, 1.0);
+                }";
 
     public Shader(GL gl)
     {
