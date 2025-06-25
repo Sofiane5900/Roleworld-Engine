@@ -39,5 +39,21 @@ public class RenderableObject
                 );
             }
         }
+
+        // 3. Generate and fill EBO
+        uint ebo = _gl.GenBuffer();
+        _gl.BindBuffer(BufferTargetARB.ElementArrayBuffer, ebo);
+        unsafe
+        {
+            fixed (float* i = indices)
+            {
+                _gl.BufferData(
+                    BufferTargetARB.ElementArrayBuffer,
+                    (nuint)(indices.Length * sizeof(float)),
+                    i,
+                    BufferUsageARB.StaticDraw
+                );
+            }
+        }
     }
 }
