@@ -72,12 +72,13 @@ public class VertexArray
 
         const uint positionLoc = 0;
         _gl.EnableVertexAttribArray(positionLoc);
+        // 3 floats for position + 2 floats for texture coordinates! \/
         _gl.VertexAttribPointer(
             positionLoc,
             3,
             VertexAttribPointerType.Float,
             false,
-            3 * sizeof(float),
+            5 * sizeof(float),
             (void*)0
         );
 
