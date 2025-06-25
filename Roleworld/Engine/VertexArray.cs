@@ -82,6 +82,17 @@ public class VertexArray
             (void*)0
         );
 
+        const uint texCoordLoc = 1;
+        _gl.EnableVertexAttribArray(texCoordLoc);
+        _gl.VertexAttribPointer(
+            texCoordLoc,
+            2,
+            VertexAttribPointerType.Float,
+            false,
+            5 * sizeof(float),
+            (void*)(3 * sizeof(float))
+        );
+
         _gl.BindVertexArray(0);
         _gl.BindBuffer(BufferTargetARB.ArrayBuffer, 0);
         _gl.BindBuffer(BufferTargetARB.ElementArrayBuffer, 0);
