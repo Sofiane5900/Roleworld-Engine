@@ -23,5 +23,21 @@ public class RenderableObject
         // 1. Generate and bind VAO
         _vao = _gl.GenVertexArray();
         _gl.BindVertexArray(_vao);
+
+        // 2. Generate and fill VBO
+        uint vbo = _gl.GenBuffer();
+        _gl.BindBuffer(BufferTargetARB.ArrayBuffer, vbo);
+        unsafe
+        {
+            fixed (float* v = vertices)
+            {
+                _gl.BufferData(
+                    BufferTargetARB.ArrayBuffer,
+                    (nuint)(vertices.Length * sizeof(float)),
+                    v,
+                    BufferUsageARB.StaticDraw
+                );
+            }
+        }
     }
 }
