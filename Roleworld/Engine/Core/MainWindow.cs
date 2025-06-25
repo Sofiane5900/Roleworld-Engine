@@ -35,7 +35,7 @@ public class MainWindow
         _gl = _mainWindow.CreateOpenGL();
         _shader = new Shader(_gl);
         _vertexArray = new VertexArray(_gl);
-        Console.WriteLine("🟢Loading window..");
+        Console.WriteLine("🟢Loading main window..");
         _gl.ClearColor(Color.CornflowerBlue);
         _vertexArray.DrawVertexBuffer();
     }
