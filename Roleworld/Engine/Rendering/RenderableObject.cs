@@ -15,5 +15,13 @@ public class RenderableObject
         float[] vertices,
         float[] indices,
         string texturePath
-    ) { }
+    )
+    {
+        _gl = gl;
+        _shader = shader;
+
+        // 1. Generate and bind VAO
+        _vao = _gl.GenVertexArray();
+        _gl.BindVertexArray(_vao);
+    }
 }
