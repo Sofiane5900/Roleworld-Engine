@@ -62,14 +62,7 @@ public class RenderableObject
         unsafe
         {
             _gl.EnableVertexAttribArray(0); // aPosition
-            _gl.VertexAttribPointer(
-                0,
-                3,
-                VertexAttribPointerType.Float,
-                false,
-                (uint)stride,
-                (void*)0
-            );
+            _gl.VertexAttribPointer(0, 3, VertexAttribPointerType.Float, false, stride, (void*)0);
 
             _gl.EnableVertexAttribArray(1); // aTexCoords
             _gl.VertexAttribPointer(
@@ -77,7 +70,7 @@ public class RenderableObject
                 2,
                 VertexAttribPointerType.Float,
                 false,
-                (uint)stride,
+                stride,
                 (void*)(3 * sizeof(float))
             );
         }
