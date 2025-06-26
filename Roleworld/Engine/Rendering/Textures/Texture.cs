@@ -37,5 +37,23 @@ public class Texture
             TextureParameterName.TextureMagFilter,
             (int)GLEnum.Linear
         );
+
+        unsafe
+        {
+            fixed (byte* data = image.Data)
+            {
+                gl.TexImage2D(
+                    TextureTarget.Texture2D,
+                    0,
+                    (int)InternalFormat.Rgba,
+                    (uint)image.Width,
+                    (uint)image.Height,
+                    0,
+                    PixelFormat.Rgba,
+                    PixelType.UnsignedByte,
+                    data
+                );
+            }
+        }
     }
 }
