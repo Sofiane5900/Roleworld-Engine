@@ -18,6 +18,7 @@
 
     <ItemGroup>
       <Folder Include="Assets\" />
+      <Folder Include="Engine\Assets\Shaders\" />
     </ItemGroup>
 
 </Project>
