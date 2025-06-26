@@ -57,7 +57,7 @@ public class RenderableObject
         }
 
         // 4. Vertex Attributes
-        const int stride = 5 * sizeof(float);
+        const int stride = 5 * sizeof(float); // total size in bytes of a vertex data block
 
         unsafe
         {
@@ -73,6 +73,8 @@ public class RenderableObject
                 stride,
                 (void*)(3 * sizeof(float))
             );
+
+            // 5. Texture
         }
     }
 }
