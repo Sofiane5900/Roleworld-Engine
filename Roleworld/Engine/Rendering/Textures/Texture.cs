@@ -55,5 +55,10 @@ public class Texture
                 );
             }
         }
+
+        gl.GenerateMipmap(TextureTarget.Texture2D);
+
+        Width = image.Width;
+        Height = image.Height;
     }
 }
