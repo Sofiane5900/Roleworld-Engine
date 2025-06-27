@@ -10,36 +10,30 @@ public class Shader
 
     const string vertexCode =
         @"
-                    #version 330 core
-                    layout (location = 0) in vec3 aPosition;
-                    // Add a new input attribute for the texture coordinates
-                    layout (location = 1) in vec2 aTextureCoord;
+    #version 330 core
+    layout(location = 0) in vec2 aPosition;
+    layout(location = 1) in vec3 aColor;
 
-                    // Add an output variable to pass the texture coordinate to the fragment shader
-                    // This variable stores the data that we want to be received by the fragment
-                    out vec2 frag_texCoords;
+    out vec3 vColor;
 
-                    void main()
-                    {
-                        gl_Position = vec4(aPosition, 1.0);
-                        // Assigin the texture coordinates without any modification to be recived in the fragment
-                        frag_texCoords = aTextureCoord;
-                    }";
+    void main()
+    {
+        gl_Position = vec4(aPosition / 50.0 - 1.0, 0.0, 1.0); // adapte ici selon taille
+        vColor = aColor;
+    }
+";
 
     const string fragmentCode =
         @"
-                      #version 330 core
+    #version 330 core
+    in vec3 vColor;
+    out vec4 FragColor;
 
-                in vec2 frag_texCoords;
-
-                out vec4 out_color;
-
-                uniform sampler2D uTexture;
-
-                void main()
-                {
-                    out_color = texture(uTexture, frag_texCoords);
-                }";
+    void main()
+    {
+        FragColor = vec4(vColor, 1.0);
+    }
+";
 
     public Shader(GL gl)
     {
