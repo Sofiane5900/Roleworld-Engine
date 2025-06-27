@@ -23,7 +23,7 @@ public class Perlin2D
         this.persistence = persistence;
     }
 
-    // return an normalized noise between 0 and 1
+    // return a normalized noise between 0 and 1
     public float GetValue(int x, int y)
     {
         double nx = x / scale;
