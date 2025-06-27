@@ -14,6 +14,7 @@ public class MainWindow
 
     private static VertexArray _vertexArray;
     private static Shader _shader;
+    private static Texture _texture;
 
     public static void ConstructWindow()
     {
