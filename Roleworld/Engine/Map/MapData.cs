@@ -7,3 +7,12 @@ public class MapData
     public float[,] HeightMap { get; }
     public Biome[,] BiomeMap { get; }
 }
+
+public enum Biome
+{
+    Water,
+    Sand,
+    Grass,
+    Rock,
+    Snow,
+}
