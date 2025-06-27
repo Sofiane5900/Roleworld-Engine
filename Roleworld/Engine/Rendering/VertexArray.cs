@@ -29,27 +29,31 @@ public class VertexArray
     {
         float[] vertices =
         {
-            //       aPosition     | aColor
+            //  x     y     z     r     g     b
             0.5f,
             0.5f,
             0.0f,
-            1.0f,
-            1.0f,
+            0.1f,
+            0.6f,
+            0.1f, // top right
             0.5f,
             -0.5f,
             0.0f,
-            1.0f,
-            0.0f,
+            0.1f,
+            0.6f,
+            0.1f, // bottom right
             -0.5f,
             -0.5f,
             0.0f,
-            0.0f,
-            0.0f,
+            0.1f,
+            0.6f,
+            0.1f, // bottom left
             -0.5f,
             0.5f,
             0.0f,
-            0.0f,
-            1.0f,
+            0.1f,
+            0.6f,
+            0.1f, // top left
         };
 
         fixed (float* buf = vertices)
@@ -61,7 +65,6 @@ public class VertexArray
             );
 
         uint[] indices = { 0u, 1u, 3u, 1u, 2u, 3u };
-
         fixed (uint* buf = indices)
             _gl.BufferData(
                 BufferTargetARB.ElementArrayBuffer,
