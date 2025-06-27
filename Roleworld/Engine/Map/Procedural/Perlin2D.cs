@@ -24,7 +24,7 @@ public class Perlin2D
     }
 
     // return a normalized noise between 0 and 1
-    public float GetValue(int x, int y)
+    public float GetValue(float x, float y)
     {
         double nx = x / scale;
         double ny = y / scale;
