@@ -15,12 +15,3 @@ public class MapData
         BiomeMap = new TerrainType[width, height];
     }
 }
-
-public enum TerrainType
-{
-    Water,
-    Sand,
-    Grass,
-    Rock,
-    Snow,
-}
