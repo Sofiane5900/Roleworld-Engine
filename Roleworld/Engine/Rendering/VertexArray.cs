@@ -78,7 +78,7 @@ public class VertexArray
             3,
             VertexAttribPointerType.Float,
             false,
-            5 * sizeof(float),
+            6 * sizeof(float),
             (void*)0
         );
 
