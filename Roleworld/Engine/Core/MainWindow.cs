@@ -13,7 +13,7 @@ public class MainWindow
 
     private static VertexArray _vertexArray;
     private static Shader _shader;
-    private static Texture _texture;
+    private static GlTexture _texture;
 
     public static void ConstructWindow()
     {
@@ -36,7 +36,10 @@ public class MainWindow
         _shader = new Shader(_gl);
         _vertexArray = new VertexArray(_gl);
 
-        _texture = new GlTexture(_gl, "Assets/Textures/grass.png");
+        _texture = new GlTexture(
+            _gl,
+            "/Users/sofiane/Desktop/Roleworld-Engine/Roleworld/Engine/Assets/Textures/grass.png"
+        );
         Console.WriteLine("🟢Loading main window..");
         _gl.ClearColor(Color.CornflowerBlue);
         _vertexArray.DrawVertexBuffer();

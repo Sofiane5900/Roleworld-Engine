@@ -1,6 +1,7 @@
 ﻿using Roleworld.Engine;
-using Silk.NET.Maths;
+using Roleworld.Engine.Core;
 using Silk.NET.Input;
+using Silk.NET.Maths;
 using Silk.NET.Windowing;
 
 namespace Roleworld
@@ -13,5 +14,3 @@ namespace Roleworld
         }
     }
 }
-
-
