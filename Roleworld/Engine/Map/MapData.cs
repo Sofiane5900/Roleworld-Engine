@@ -5,10 +5,18 @@ public class MapData
     public int Width { get; }
     public int Height { get; }
     public float[,] HeightMap { get; }
-    public Biome[,] BiomeMap { get; }
+    public TerrainType[,] BiomeMap { get; }
+
+    public MapData(int width, int height)
+    {
+        Width = width;
+        Height = height;
+        HeightMap = new float[width, height];
+        BiomeMap = new TerrainType[width, height];
+    }
 }
 
-public enum Biome
+public enum TerrainType
 {
     Water,
     Sand,
