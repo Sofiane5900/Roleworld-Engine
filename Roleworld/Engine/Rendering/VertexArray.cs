@@ -82,15 +82,15 @@ public class VertexArray
             (void*)0
         );
 
-        const uint texCoordLoc = 1;
-        _gl.EnableVertexAttribArray(texCoordLoc);
+        const uint colorLoc = 1;
+        _gl.EnableVertexAttribArray(colorLoc);
         _gl.VertexAttribPointer(
-            texCoordLoc,
-            2,
+            colorLoc,
+            3,
             VertexAttribPointerType.Float,
             false,
-            5 * sizeof(float),
-            (void*)(3 * sizeof(float))
+            6 * sizeof(float),
+            (void*)(3 * sizeof(float)) // 3 floats after the position
         );
 
         _gl.BindVertexArray(0);
