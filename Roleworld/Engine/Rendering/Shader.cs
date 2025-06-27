@@ -28,17 +28,17 @@ public class Shader
 
     const string fragmentCode =
         @"
-                       #version 330 core
+                      #version 330 core
 
-                // Receive the input from the vertex shader in an attribute
                 in vec2 frag_texCoords;
 
                 out vec4 out_color;
 
+                uniform sampler2D uTexture;
+
                 void main()
                 {
-                    // This will allow us to see the texture coordinates in action!
-                    out_color = vec4(frag_texCoords.x, frag_texCoords.y, 0.0, 1.0);
+                    out_color = texture(uTexture, frag_texCoords);
                 }";
 
     public Shader(GL gl)
