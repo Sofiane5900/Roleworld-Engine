@@ -29,7 +29,7 @@ public class VertexArray
     {
         float[] vertices =
         {
-            //       aPosition     | aTexCoords
+            //       aPosition     | aColor
             0.5f,
             0.5f,
             0.0f,
