@@ -79,4 +79,6 @@ public class Shader
         _gl.DeleteShader(vertexShader);
         _gl.DeleteShader(fragmentShader);
     }
+
+    public void Use() => _gl.UseProgram(_program);
 }

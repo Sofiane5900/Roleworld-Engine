@@ -47,7 +47,7 @@ public class MainWindow
     {
         _gl.Clear(ClearBufferMask.ColorBufferBit);
         _gl.BindVertexArray(_vertexArray.Handle);
-        _gl.UseProgram(_shader.Handle);
+        _shader.Use();
         _gl.DrawElements(PrimitiveType.Triangles, 6, DrawElementsType.UnsignedInt, (void*)0);
     }
 }
