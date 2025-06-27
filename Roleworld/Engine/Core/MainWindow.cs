@@ -1,11 +1,10 @@
 using System.Drawing;
-using Silk.NET.OpenGL;
-
-namespace Roleworld.Engine;
-
-using Silk.NET.Input;
+using Roleworld.Engine.Textures;
 using Silk.NET.Maths;
+using Silk.NET.OpenGL;
 using Silk.NET.Windowing;
+
+namespace Roleworld.Engine.Core;
 
 public class MainWindow
 {
@@ -36,6 +35,8 @@ public class MainWindow
         _gl = _mainWindow.CreateOpenGL();
         _shader = new Shader(_gl);
         _vertexArray = new VertexArray(_gl);
+
+        _texture = new GlTexture(_gl, "Assets/Textures/grass.png");
         Console.WriteLine("🟢Loading main window..");
         _gl.ClearColor(Color.CornflowerBlue);
         _vertexArray.DrawVertexBuffer();
