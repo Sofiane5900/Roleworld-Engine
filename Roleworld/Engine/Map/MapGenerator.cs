@@ -17,7 +17,8 @@ namespace Roleworld.Engine.Map
             {
                 for (int y = 0; y < height; y++)
                 {
-                    float noise = perlin.GetValue(x * 0.05f, y * 0.05f);
+                    float noise = perlin.GetValue(x * 0.1f, y * 0.1f);
+                    Console.WriteLine($"Noise = {noise:0.00}");
                     data.HeightMap[x, y] = noise;
                     data.BiomeMap[x, y] = GetTerrainType(noise);
                 }
