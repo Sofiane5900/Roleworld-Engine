@@ -70,6 +70,7 @@ public class MapRenderer
                 );
 
                 indexOffset += 4;
+                Console.WriteLine($"({x},{y}) = {map.BiomeMap[x, y]}");
             }
         }
 
