@@ -11,5 +11,9 @@ public class PerlinNoise
         int y0 = (int)y;
         int x1 = x0 + 1;
         int y1 = y0 + 1;
+
+        // compute interpolation wheights
+        float sx = x - (float)x0;
+        float sy = y - (float)y0;
     }
 }
