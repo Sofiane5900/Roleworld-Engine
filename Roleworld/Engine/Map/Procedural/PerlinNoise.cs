@@ -16,4 +16,14 @@ public class PerlinNoise
 
         public float Dot(Vector2 other) => X * other.X + Y * other.Y;
     }
+
+    private float Fade(float t)
+    {
+        return t * t * t * (t * (t * 6 - 15) + 10);
+    }
+
+    private float Lerp(float a, float b, float t)
+    {
+        return a + t * (b - a);
+    }
 }
