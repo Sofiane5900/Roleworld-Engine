@@ -84,8 +84,8 @@ public class PerlinNoise
         return value;
     }
 
-    public float Generate(float x, float y)
+    public float GenerateNormalizedNoise(float x, float y)
     {
-        return (GeneratePerlin(x, y) + 1f) / 2f;
+        return (GenerateRawNoise(x, y) + 1f) / 2f;
     }
 }
