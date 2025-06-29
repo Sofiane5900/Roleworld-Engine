@@ -17,6 +17,25 @@ public class PerlinNoise
         public float Dot(Vector2 other) => X * other.X + Y * other.Y;
     }
 
+    private static readonly Vector2[] Gradients = new[]
+    {
+        new Vector2(1, 0),
+        new Vector2(-1, 0),
+        new Vector2(0, 1),
+        new Vector2(0, -1),
+        new Vector2(1, 1),
+        new Vector2(-1, 1),
+        new Vector2(1, -1),
+        new Vector2(-1, -1),
+    };
+
+    private Vector2 GetGradient(int x, int y)
+    {
+        int hash = (x * 73856093) ^ (y * 19349663);
+        int index = Math.Abs(hash) % Gradients.Length;
+        return Gradients[index];
+    }
+
     private float Fade(float t)
     {
         return t * t * t * (t * (t * 6 - 15) + 10);
