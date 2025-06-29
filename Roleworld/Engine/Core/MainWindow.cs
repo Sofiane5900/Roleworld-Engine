@@ -1,4 +1,6 @@
 using System.Drawing;
+using Roleworld.Engine.Map;
+using Roleworld.Engine.Rendering;
 using Roleworld.Engine.Textures;
 using Silk.NET.Maths;
 using Silk.NET.OpenGL;
@@ -11,9 +13,10 @@ public class MainWindow
     private static IWindow _mainWindow;
     private static GL _gl;
 
-    private static VertexArray _vertexArray;
+    // private static VertexArray _vertexArray;
     private static Shader _shader;
-    private static GlTexture _texture;
+    private static MapRenderer _mapRenderer;
+    private static MapData _mapData;
 
     public static void ConstructWindow()
     {
@@ -34,15 +37,14 @@ public class MainWindow
     {
         _gl = _mainWindow.CreateOpenGL();
         _shader = new Shader(_gl);
-        _vertexArray = new VertexArray(_gl);
+        // _vertexArray = new VertexArray(_gl);
+        _mapData = new MapGenerator().Generate(100, 100);
+        _mapRenderer = new MapRenderer(_gl);
+        _mapRenderer.Build(_mapData);
 
-        _texture = new GlTexture(
-            _gl,
-            "/Users/sofiane/Desktop/Roleworld-Engine/Roleworld/Engine/Assets/Textures/grass.png"
-        );
         Console.WriteLine("🟢Loading main window..");
         _gl.ClearColor(Color.CornflowerBlue);
-        _vertexArray.DrawVertexBuffer();
+        // _vertexArray.DrawVertexBuffer();
     }
 
     private static void OnUpdate(double deltaTime) { }
@@ -50,8 +52,8 @@ public class MainWindow
     private static unsafe void OnRender(double deltaTime)
     {
         _gl.Clear(ClearBufferMask.ColorBufferBit);
-        _gl.BindVertexArray(_vertexArray.Handle);
+        // _gl.BindVertexArray(_vertexArray.Handle);
         _shader.Use();
-        _gl.DrawElements(PrimitiveType.Triangles, 6, DrawElementsType.UnsignedInt, (void*)0);
+        _mapRenderer.Render();
     }
 }
