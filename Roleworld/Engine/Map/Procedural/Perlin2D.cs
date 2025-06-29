@@ -10,7 +10,7 @@ public class Perlin2D
     private readonly double persistence;
 
     public Perlin2D(
-        float scale = 100f,
+        float scale = 4f,
         int octaves = 4,
         double lacunarity = 2.0,
         double persistence = 0.5
