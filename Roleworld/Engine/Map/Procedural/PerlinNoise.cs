@@ -1,19 +1,19 @@
-using System.Xml;
-
 namespace Roleworld.Engine.Map;
 
 public class PerlinNoise
 {
-    public float GeneratePerlin(float x, float y)
+    // 2D Gradient Vector
+    private struct Vector2
     {
-        // determine grid cell cordinates
-        int x0 = (int)x;
-        int y0 = (int)y;
-        int x1 = x0 + 1;
-        int y1 = y0 + 1;
+        public float X,
+            Y;
 
-        // compute interpolation wheights
-        float sx = x - (float)x0;
-        float sy = y - (float)y0;
+        public Vector2(float x, float y)
+        {
+            X = x;
+            Y = y;
+        }
+
+        public float Dot(Vector2 other) => X * other.X + Y * other.Y;
     }
 }
