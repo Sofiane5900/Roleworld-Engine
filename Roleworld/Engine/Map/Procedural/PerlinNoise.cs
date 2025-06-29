@@ -55,7 +55,7 @@ public class PerlinNoise
         return a + t * (b - a);
     }
 
-    public float GeneratePerlin(float x, float y)
+    public float GenerateRawNoise(float x, float y)
     {
         int x0 = (int)MathF.Floor(x);
         int x1 = x0 + 1;
@@ -82,5 +82,10 @@ public class PerlinNoise
         value = Lerp(ix0, ix1, sy);
 
         return value;
+    }
+
+    public float Generate(float x, float y)
+    {
+        return (GeneratePerlin(x, y) + 1f) / 2f;
     }
 }
