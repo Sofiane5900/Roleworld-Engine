@@ -1,6 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
+# 
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Roleworld", "Roleworld.csproj", "{EAD47BD5-3D05-4A83-8DE7-8DA192437426}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Engine.Tests", "Engine.Tests\Engine.Tests.csproj", "{E59FCE21-BDE4-4EC3-9B47-14C5FDAFCD4D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -12,5 +15,9 @@ Global
 		{EAD47BD5-3D05-4A83-8DE7-8DA192437426}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EAD47BD5-3D05-4A83-8DE7-8DA192437426}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EAD47BD5-3D05-4A83-8DE7-8DA192437426}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E59FCE21-BDE4-4EC3-9B47-14C5FDAFCD4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E59FCE21-BDE4-4EC3-9B47-14C5FDAFCD4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E59FCE21-BDE4-4EC3-9B47-14C5FDAFCD4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E59FCE21-BDE4-4EC3-9B47-14C5FDAFCD4D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
