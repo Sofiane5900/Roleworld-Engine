@@ -2,25 +2,33 @@ namespace Roleworld.Engine.Map
 {
     public class MapGenerator
     {
-        private readonly Perlin2D perlin;
+        private readonly PerlinNoise perlin;
 
         public MapGenerator()
         {
-            perlin = new Perlin2D();
+            perlin = new PerlinNoise();
         }
 
         public MapData Generate(int width, int height)
         {
             var data = new MapData(width, height);
+            float[,] falloffMap = FallofMapGenerator.Generate(width, height);
+            float scale = 20f;
 
             for (int x = 0; x < width; x++)
             {
                 for (int y = 0; y < height; y++)
                 {
-                    float noise = perlin.GetValue(x * 0.1f, y * 0.1f);
-                    Console.WriteLine($"Noise = {noise:0.00}");
-                    data.HeightMap[x, y] = noise;
-                    data.BiomeMap[x, y] = GetTerrainType(noise);
+                    float sampleX = x / scale;
+                    float sampleY = y / scale;
+
+                    float perlinValue = perlin.GenerateNormalizedNoise(sampleX, sampleY);
+                    float falloffValue = falloffMap[x, y];
+
+                    float heightValue = Math.Clamp(perlinValue - falloffValue, 0f, 1f);
+                    Console.WriteLine($"Noise = {perlinValue:0.00}");
+                    data.HeightMap[x, y] = heightValue;
+                    data.BiomeMap[x, y] = GetTerrainType(heightValue);
                 }
             }
 
