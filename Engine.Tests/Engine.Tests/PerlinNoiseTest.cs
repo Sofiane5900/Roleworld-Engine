@@ -18,4 +18,17 @@ public class PerlinNoiseTest
         // Assert
         Assert.InRange(result, 0f, 1f);
     }
+    
+    [Fact]
+    public void Generate_SameCoordinates_ReturnsSameValue()
+    {
+        var perlin = new PerlinNoise();
+        float x = 5f;
+        float y = 5f;
+
+        float first = perlin.GenerateNormalizedNoise(x, y);
+        float second = perlin.GenerateNormalizedNoise(x, y);
+
+        Assert.Equal(first, second);
+    }
 }

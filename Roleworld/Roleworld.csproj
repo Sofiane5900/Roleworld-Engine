@@ -7,20 +7,20 @@
         <Nullable>enable</Nullable>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     </PropertyGroup>
-    
+
 
     <ItemGroup>
-      <PackageReference Include="Silk.NET.Input" Version="2.22.0" />
-      <PackageReference Include="Silk.NET.Maths" Version="2.22.0" />
-      <PackageReference Include="Silk.NET.OpenGL" Version="2.22.0" />
-      <PackageReference Include="Silk.NET.Windowing" Version="2.22.0" />
-      <PackageReference Include="StbImageSharp" Version="2.30.15" />
+        <PackageReference Include="Silk.NET.Input" Version="2.22.0" />
+        <PackageReference Include="Silk.NET.Maths" Version="2.22.0" />
+        <PackageReference Include="Silk.NET.OpenGL" Version="2.22.0" />
+        <PackageReference Include="Silk.NET.Windowing" Version="2.22.0" />
+        <PackageReference Include="StbImageSharp" Version="2.30.15" />
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Assets\" />
-      <Folder Include="Engine\Assets\Shaders\" />
-      <Folder Include="Engine\Assets\Textures\" />
+        <Folder Include="Assets\" />
+        <Folder Include="Engine\Assets\Shaders\" />
+        <Folder Include="Engine\Assets\Textures\" />
     </ItemGroup>
 
 </Project>
