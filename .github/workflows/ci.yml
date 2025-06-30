@@ -26,4 +26,4 @@ jobs:
         run: dotnet build Roleworld/Roleworld.csproj --configuration Release --no-restore
 
       - name: Run tests from Engine.Tests
-        run: dotnet test Engine.Tests/Engine.Tests.csproj --no-build --verbosity normal
+        run: dotnet test Engine.Tests/Engine.Tests/Engine.Tests.csproj --no-build --verbosity normal
