@@ -12,7 +12,7 @@ public class PerlinNoiseTest
         float x = 10.5f;
         float y = 7.3f;
 
-        // Act test
+        // Act
         float result = perlin.GenerateNormalizedNoise(x, y);
 
         // Assert
