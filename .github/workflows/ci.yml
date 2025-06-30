@@ -20,10 +20,10 @@ jobs:
           dotnet-version: '8.0.x'
 
       - name: Restore dependencies
-        run: dotnet restore ./Roleworld.sln
+        run: dotnet restore Roleworld/Roleworld.sln
 
       - name: Build solution
-        run: dotnet build ./Roleworld.sln --configuration Release --no-restore
-
+        run: dotnet build Roleworld/Roleworld.sln --configuration Release --no-restore
+      
       - name: Run tests
-        run: dotnet test ./Engine.Tests/Engine.Tests.csproj --no-build --verbosity normal
+        run: dotnet test Engine.Tests/Engine.Tests.csproj --no-build --verbosity normal
