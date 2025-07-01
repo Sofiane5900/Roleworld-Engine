@@ -63,8 +63,8 @@ public class PerlinNoise
 
     private Vector2 GetGradient(int x, int y)
     {
-        int hash = (x * 73856093) ^ (y * 19349663);
-        int index = Math.Abs(hash) % Gradients.Length;
+        int hash = _permutation[(x + _permutation[y & 255]) & 255];
+        int index = hash % Gradients.Length;
         return Gradients[index];
     }
 
