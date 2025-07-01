@@ -3,10 +3,10 @@ namespace Roleworld.Engine.Map;
 public class PerlinNoise
 {
     private readonly int _seed;
-
     private readonly Random _prng;
+    private readonly int[] _permutation;
 
-    public PerlinNoise(int seed, Random prng)
+    public PerlinNoise(int seed)
     {
         _seed = seed;
         _prng = new Random(seed);
