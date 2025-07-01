@@ -10,6 +10,12 @@ public class PerlinNoise
     {
         _seed = seed;
         _prng = new Random(seed);
+        var p = new int[256];
+        // initialize p array with integer from 0 to 255
+        for (int i = 0; i < 256; i++)
+        {
+            p[i] = i;
+        }
     }
 
     // 2D Gradient Vector
