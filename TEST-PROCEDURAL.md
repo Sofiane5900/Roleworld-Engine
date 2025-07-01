@@ -91,14 +91,7 @@ stateDiagram-v2
 
 ---
 
-## 5. Test Environment
-
-### 5.1 Platforms
-
-* macOS (Apple Silicon)
-* .NET 8 Runtime
-
-### 5.2 Dependencies
+### 5 Dependencies
 
 * None (no UI, no database)
 * Headless environment (console-based only)
