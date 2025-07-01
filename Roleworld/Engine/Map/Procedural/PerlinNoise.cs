@@ -6,6 +6,12 @@ public class PerlinNoise
 
     private readonly Random _prng;
 
+    public PerlinNoise(int seed, Random prng)
+    {
+        _seed = seed;
+        _prng = new Random(seed);
+    }
+
     // 2D Gradient Vector
     private struct Vector2
     {
