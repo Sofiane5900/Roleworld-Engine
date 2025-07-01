@@ -4,9 +4,9 @@ namespace Roleworld.Engine.Map
     {
         private readonly PerlinNoise perlin;
 
-        public MapGenerator()
+        public MapGenerator(int seed)
         {
-            perlin = new PerlinNoise();
+            perlin = new PerlinNoise(seed);
         }
 
         public MapData Generate(int width, int height)
