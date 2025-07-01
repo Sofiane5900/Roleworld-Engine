@@ -38,7 +38,7 @@ public class MainWindow
         _gl = _mainWindow.CreateOpenGL();
         _shader = new Shader(_gl);
         // _vertexArray = new VertexArray(_gl);
-        _mapData = new MapGenerator().Generate(100, 100);
+        _mapData = new MapGenerator(100).Generate(100, 100);
         _mapRenderer = new MapRenderer(_gl);
         _mapRenderer.Build(_mapData);
 

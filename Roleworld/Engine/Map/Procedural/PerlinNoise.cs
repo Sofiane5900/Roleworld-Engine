@@ -2,6 +2,38 @@ namespace Roleworld.Engine.Map;
 
 public class PerlinNoise
 {
+    private readonly int _seed;
+    private readonly Random _prng;
+    private readonly int[] _permutation;
+
+    public PerlinNoise(int seed)
+    {
+        _seed = seed;
+        _prng = new Random(seed);
+        var p = new int[256];
+        // initialize p array with integer from 0 to 255
+        for (int i = 0; i < 256; i++)
+        {
+            p[i] = i;
+        }
+
+        // fisher-yates algorithm to shuffle integers
+        for (int i = 255; i > 0; i--)
+        {
+            int swapIndex = _prng.Next(i + 1);
+            int temp = p[i];
+            p[i] = p[swapIndex];
+            p[swapIndex] = temp;
+        }
+        // copy 2 time the p array in permutation array to not exceed index
+        _permutation = new int[512];
+        for (int i = 0; i < 512; i++)
+        {
+            int index = i % 256;
+            _permutation[i] = p[index];
+        }
+    }
+
     // 2D Gradient Vector
     private struct Vector2
     {
@@ -31,8 +63,8 @@ public class PerlinNoise
 
     private Vector2 GetGradient(int x, int y)
     {
-        int hash = (x * 73856093) ^ (y * 19349663);
-        int index = Math.Abs(hash) % Gradients.Length;
+        int hash = _permutation[(x + _permutation[y & 255]) & 255];
+        int index = hash % Gradients.Length;
         return Gradients[index];
     }
 
