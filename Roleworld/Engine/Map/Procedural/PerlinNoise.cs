@@ -16,6 +16,15 @@ public class PerlinNoise
         {
             p[i] = i;
         }
+
+        // fisher-yates algorithm to shuffle integers
+        for (int i = 255; i > 0; i--)
+        {
+            int swapIndex = _prng.Next(i + 1);
+            int temp = p[i];
+            p[i] = p[swapIndex];
+            p[swapIndex] = temp;
+        }
     }
 
     // 2D Gradient Vector
