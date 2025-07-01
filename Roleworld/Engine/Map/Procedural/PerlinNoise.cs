@@ -2,6 +2,10 @@ namespace Roleworld.Engine.Map;
 
 public class PerlinNoise
 {
+    private readonly int _seed;
+
+    private readonly Random _prng;
+
     // 2D Gradient Vector
     private struct Vector2
     {
