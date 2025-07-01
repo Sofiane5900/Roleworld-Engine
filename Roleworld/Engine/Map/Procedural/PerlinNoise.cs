@@ -25,6 +25,13 @@ public class PerlinNoise
             p[i] = p[swapIndex];
             p[swapIndex] = temp;
         }
+        // copy 2 time the p array in permutation array to not exceed index
+        _permutation = new int[512];
+        for (int i = 0; i < 512; i++)
+        {
+            int index = i % 256;
+            _permutation[i] = p[index];
+        }
     }
 
     // 2D Gradient Vector
