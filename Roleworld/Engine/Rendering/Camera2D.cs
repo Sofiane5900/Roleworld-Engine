@@ -1,3 +1,5 @@
+using System.Numerics;
+
 namespace Roleworld.Engine;
 
 public class Camera2D
@@ -10,4 +12,12 @@ public class Camera2D
     public float MaxZoom { get; set; } = 10f;
 
     public Camera2D() { }
+
+    public Matrix4x4 GetProjectionMatrix(int screenWidth, int screenHeight)
+    {
+        float viewWidth = screenWidth / Zoom;
+        float viewHeight = screenHeight / Zoom;
+
+        return Matrix4x4.CreateOrthographicOffCenter(X, X + viewWidth, Y, Y + viewHeight, -1f, 1f);
+    }
 }
