@@ -1,4 +1,5 @@
 using System.Drawing;
+using System.Numerics;
 using Roleworld.Engine.Map;
 using Roleworld.Engine.Rendering;
 using Roleworld.Engine.Textures;
@@ -17,6 +18,8 @@ public class MainWindow
     private static Shader _shader;
     private static MapRenderer _mapRenderer;
     private static MapData _mapData;
+
+    private static Camera2D _camera;
 
     public static void ConstructWindow()
     {
@@ -38,8 +41,9 @@ public class MainWindow
         _gl = _mainWindow.CreateOpenGL();
         _shader = new Shader(_gl);
         // _vertexArray = new VertexArray(_gl);
-        _mapData = new MapGenerator(100).Generate(100, 100);
+        _mapData = new MapGenerator(100).Generate(1024, 1024);
         _mapRenderer = new MapRenderer(_gl);
+        _camera = new Camera2D();
         _mapRenderer.Build(_mapData);
 
         Console.WriteLine("🟢Loading main window..");
@@ -54,6 +58,12 @@ public class MainWindow
         _gl.Clear(ClearBufferMask.ColorBufferBit);
         // _gl.BindVertexArray(_vertexArray.Handle);
         _shader.Use();
+        Matrix4x4 projection = _camera.GetProjectionMatrix(
+            _mainWindow.FramebufferSize.X,
+            _mainWindow.FramebufferSize.Y
+        );
+
+        _shader.SetMatrix4("uProjection", projection);
         _mapRenderer.Render();
     }
 }

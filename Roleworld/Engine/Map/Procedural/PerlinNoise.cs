@@ -35,46 +35,36 @@ public class PerlinNoise
     }
 
     // 2D Gradient Vector
-    private struct Vector2
+
+
+    private static readonly float[,] Gradients = new float[,]
     {
-        public float X,
-            Y;
-
-        public Vector2(float x, float y)
-        {
-            X = x;
-            Y = y;
-        }
-
-        public float Dot(Vector2 other) => X * other.X + Y * other.Y;
-    }
-
-    private static readonly Vector2[] Gradients = new[]
-    {
-        new Vector2(1, 0),
-        new Vector2(-1, 0),
-        new Vector2(0, 1),
-        new Vector2(0, -1),
-        new Vector2(1, 1),
-        new Vector2(-1, 1),
-        new Vector2(1, -1),
-        new Vector2(-1, -1),
+        { 1f, 0f },
+        { -1f, 0f },
+        { 0f, 1f },
+        { 0f, -1f },
+        { 1f, 1f },
+        { -1f, 1f },
+        { 1f, -1f },
+        { -1f, -1f },
     };
 
-    private Vector2 GetGradient(int x, int y)
+    private void GetGradient(int x, int y, out float gx, out float gy)
     {
         int hash = _permutation[(x + _permutation[y & 255]) & 255];
-        int index = hash % Gradients.Length;
-        return Gradients[index];
+        int index = hash % 8;
+        gx = Gradients[index, 0];
+        gy = Gradients[index, 1];
     }
 
     private float DotGridGradient(int ix, int iy, float x, float y)
     {
-        var gradient = GetGradient(ix, iy);
+        float gx,
+            gy;
+        GetGradient(ix, iy, out gx, out gy);
         float dx = x - ix;
         float dy = y - iy;
-
-        return gradient.Dot(new Vector2(dx, dy));
+        return dx * gx + dy * gy; // scalar product
     }
 
     private float Fade(float t)

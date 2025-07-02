@@ -70,9 +70,6 @@ public class MapRenderer
                 );
 
                 indexOffset += 4;
-                Console.WriteLine(
-                    $"({x},{y}) = {map.BiomeMap[x, y]}, height = {map.HeightMap[x, y]:0.00}"
-                );
             }
         }
 

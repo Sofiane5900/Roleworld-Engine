@@ -1,3 +1,4 @@
+using System.Numerics;
 using Silk.NET.OpenGL;
 
 namespace Roleworld.Engine;
@@ -16,11 +17,13 @@ public class Shader
 
     out vec3 vColor;
 
+    uniform mat4 uProjection;
+
     void main()
-    {
-        gl_Position = vec4(aPosition / 50.0 - 1.0, 0.0, 1.0); // adapte ici selon taille
-        vColor = aColor;
-    }
+     {
+         gl_Position = uProjection * vec4(aPosition, 0.0, 1.0);
+         vColor = aColor;
+     }
 ";
 
     const string fragmentCode =
@@ -75,4 +78,13 @@ public class Shader
     }
 
     public void Use() => _gl.UseProgram(_program);
+
+    public unsafe void SetMatrix4(string name, Matrix4x4 matrix)
+    {
+        int location = _gl.GetUniformLocation(Handle, name);
+        if (location == -1)
+            Console.WriteLine($"Uniform {name} not found in shader.");
+
+        _gl.UniformMatrix4(location, 1, false, (float*)&matrix);
+    }
 }

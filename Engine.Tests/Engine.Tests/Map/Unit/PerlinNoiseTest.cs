@@ -8,7 +8,7 @@ public class PerlinNoiseTest
     public void Generate_ShouldReturnValueBetween0And1()
     {
         // Arrange
-        var perlin = new PerlinNoise();
+        var perlin = new PerlinNoise(10);
         float x = 10.5f;
         float y = 7.3f;
 
@@ -22,7 +22,7 @@ public class PerlinNoiseTest
     [Fact]
     public void Generate_SameCoordinates_ReturnsSameValue()
     {
-        var perlin = new PerlinNoise();
+        var perlin = new PerlinNoise(10);
         float x = 5f;
         float y = 5f;
 
