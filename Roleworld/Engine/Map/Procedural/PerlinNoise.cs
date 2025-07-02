@@ -49,11 +49,12 @@ public class PerlinNoise
         { -1f, -1f },
     };
 
-    private Vector2 GetGradient(int x, int y)
+    private void GetGradient(int x, int y, out float gx, out float gy)
     {
         int hash = _permutation[(x + _permutation[y & 255]) & 255];
-        int index = hash % Gradients.Length;
-        return Gradients[index];
+        int index = hash % 8;
+        gx = Gradients[index, 0];
+        gy = Gradients[index, 1];
     }
 
     private float DotGridGradient(int ix, int iy, float x, float y)
