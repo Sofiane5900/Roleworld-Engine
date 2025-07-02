@@ -20,4 +20,10 @@ public class Camera2D
 
         return Matrix4x4.CreateOrthographicOffCenter(X, X + viewWidth, Y, Y + viewHeight, -1f, 1f);
     }
+
+    public void Pan(float deltaX, float deltaY)
+    {
+        X += deltaX / Zoom;
+        Y += deltaY / Zoom;
+    }
 }
