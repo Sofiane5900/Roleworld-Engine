@@ -58,6 +58,12 @@ public class MainWindow
         _gl.Clear(ClearBufferMask.ColorBufferBit);
         // _gl.BindVertexArray(_vertexArray.Handle);
         _shader.Use();
+        Matrix4x4 projection = _camera.GetProjectionMatrix(
+            _mainWindow.FramebufferSize.X,
+            _mainWindow.FramebufferSize.Y
+        );
+
+        _shader.SetMatrix4("uProjection", projection);
         _mapRenderer.Render();
     }
 }
