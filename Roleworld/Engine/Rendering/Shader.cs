@@ -17,11 +17,13 @@ public class Shader
 
     out vec3 vColor;
 
+    uniform mat4 uProjection;
+
     void main()
-    {
-        gl_Position = vec4(aPosition / 50.0 - 1.0, 0.0, 1.0); // adapte ici selon taille
-        vColor = aColor;
-    }
+     {
+         gl_Position = uProjection * vec4(aPosition, 0.0, 1.0);
+         vColor = aColor;
+     }
 ";
 
     const string fragmentCode =
