@@ -36,4 +36,8 @@
         <ProjectReference Include="../../Roleworld/Roleworld.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="Map\Integration\" />
+    </ItemGroup>
+
 </Project>
