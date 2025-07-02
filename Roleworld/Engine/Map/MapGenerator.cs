@@ -1,3 +1,5 @@
+using System.Diagnostics;
+
 namespace Roleworld.Engine.Map
 {
     public class MapGenerator
@@ -26,12 +28,10 @@ namespace Roleworld.Engine.Map
                     float falloffValue = falloffMap[x, y];
 
                     float heightValue = Math.Clamp(perlinValue - falloffValue, 0f, 1f);
-                    Console.WriteLine($"Noise = {perlinValue:0.00}");
                     data.HeightMap[x, y] = heightValue;
                     data.BiomeMap[x, y] = GetTerrainType(heightValue);
                 }
             }
-
             return data;
         }
 
