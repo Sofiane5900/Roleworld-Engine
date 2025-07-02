@@ -56,15 +56,6 @@ public class PerlinNoise
         return Gradients[index];
     }
 
-    private float DotGridGradient(int ix, int iy, float x, float y)
-    {
-        var gradient = GetGradient(ix, iy);
-        float dx = x - ix;
-        float dy = y - iy;
-
-        return gradient.Dot(new Vector2(dx, dy));
-    }
-
     private float Fade(float t)
     {
         return t * t * t * (t * (t * 6 - 15) + 10);
