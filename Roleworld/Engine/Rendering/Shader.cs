@@ -1,3 +1,4 @@
+using System.Numerics;
 using Silk.NET.OpenGL;
 
 namespace Roleworld.Engine;
@@ -75,4 +76,13 @@ public class Shader
     }
 
     public void Use() => _gl.UseProgram(_program);
+
+    public unsafe void SetMatrix4(string name, Matrix4x4 matrix)
+    {
+        int location = _gl.GetUniformLocation(Handle, name);
+        if (location == -1)
+            Console.WriteLine($"Uniform {name} not found in shader.");
+
+        _gl.UniformMatrix4(location, 1, false, (float*)&matrix);
+    }
 }
