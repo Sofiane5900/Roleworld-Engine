@@ -8,4 +8,6 @@ public class Camera2D
 
     public float MinZoom { get; set; } = 0.1f;
     public float MaxZoom { get; set; } = 10f;
+
+    public Camera2D() { }
 }
