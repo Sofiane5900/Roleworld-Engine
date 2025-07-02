@@ -32,4 +32,10 @@ public class Camera2D
         Zoom *= factor;
         Zoom = MathF.Min(Zoom, MaxZoom);
     }
+
+    public void ZoomOut(float factor = 1.1f)
+    {
+        Zoom /= factor;
+        Zoom = MathF.Max(Zoom, MinZoom);
+    }
 }
