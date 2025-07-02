@@ -26,4 +26,10 @@ public class Camera2D
         X += deltaX / Zoom;
         Y += deltaY / Zoom;
     }
+
+    public void ZoomIn(float factor = 1.1f)
+    {
+        Zoom *= factor;
+        Zoom = MathF.Min(Zoom, MaxZoom);
+    }
 }
