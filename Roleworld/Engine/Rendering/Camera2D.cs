@@ -38,4 +38,10 @@ public class Camera2D
         Zoom /= factor;
         Zoom = MathF.Max(Zoom, MinZoom);
     }
+
+    public void SetPosition(float x, float y)
+    {
+        X = x;
+        Y = y;
+    }
 }
