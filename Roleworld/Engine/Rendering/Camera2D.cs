@@ -44,4 +44,13 @@ public class Camera2D
         X = x;
         Y = y;
     }
+
+    public void CenterOn(float targetX, float targetY, int screenWidth, int screenHeight)
+    {
+        float viewWidth = screenWidth / Zoom;
+        float viewHeight = screenHeight / Zoom;
+
+        X = targetX - viewWidth / 2f;
+        Y = targetY - viewHeight / 2f;
+    }
 }
