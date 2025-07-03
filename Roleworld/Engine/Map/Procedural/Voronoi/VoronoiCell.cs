@@ -6,4 +6,9 @@ public class VoronoiCell
 {
     public Vector2 Site { get; }
     public List<Vector2> Vertices { get; } = new();
+
+    public VoronoiCell(Vector2 site)
+    {
+        Site = site;
+    }
 }
