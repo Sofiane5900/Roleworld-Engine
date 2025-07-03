@@ -13,7 +13,7 @@ public class CameraController
         _keyboard = keyboard;
     }
 
-    private static void Update(double deltaTime)
+    public static void Update(double deltaTime)
     {
         float cameraSpeed = 300f * (float)deltaTime;
 
