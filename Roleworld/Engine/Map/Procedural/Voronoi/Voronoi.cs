@@ -12,4 +12,6 @@ public class Voronoi
     {
         Sites.Add(point);
     }
+
+    public void Generate() { }
 }
