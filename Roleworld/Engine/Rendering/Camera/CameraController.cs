@@ -7,23 +7,23 @@ public class CameraController
     private static Camera2D _camera;
     private static IKeyboard _keyboard;
 
-    public CameraController(Camera2D camera, IKeyboard keyboard)
+    public CameraController(Camera2D camera, IKeyboard _keyboard)
     {
         _camera = camera;
-        _keyboard = keyboard;
+        _keyboard = _keyboard;
     }
 
     private static void OnUpdate(double deltaTime)
     {
         float cameraSpeed = 300f * (float)deltaTime;
 
-        if (keyboard.IsKeyPressed(Key.W) || keyboard.IsKeyPressed(Key.Down))
+        if (_keyboard.IsKeyPressed(Key.W) || _keyboard.IsKeyPressed(Key.Down))
             _camera.Pan(0, -cameraSpeed);
-        if (keyboard.IsKeyPressed(Key.S) || keyboard.IsKeyPressed(Key.Up))
+        if (_keyboard.IsKeyPressed(Key.S) || _keyboard.IsKeyPressed(Key.Up))
             _camera.Pan(0, cameraSpeed);
-        if (keyboard.IsKeyPressed(Key.A) || keyboard.IsKeyPressed(Key.Left))
+        if (_keyboard.IsKeyPressed(Key.A) || _keyboard.IsKeyPressed(Key.Left))
             _camera.Pan(-cameraSpeed, 0);
-        if (keyboard.IsKeyPressed(Key.D) || keyboard.IsKeyPressed(Key.Right))
+        if (_keyboard.IsKeyPressed(Key.D) || _keyboard.IsKeyPressed(Key.Right))
             _camera.Pan(cameraSpeed, 0);
     }
 }
