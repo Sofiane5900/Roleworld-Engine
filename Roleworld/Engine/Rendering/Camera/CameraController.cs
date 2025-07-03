@@ -4,8 +4,8 @@ namespace Roleworld.Engine;
 
 public class CameraController
 {
-    private static Camera2D _camera;
-    private static IKeyboard _keyboard;
+    private static Camera2D _camera = null!;
+    private static IKeyboard _keyboard = null!;
 
     public CameraController(Camera2D camera, IKeyboard keyboard)
     {
