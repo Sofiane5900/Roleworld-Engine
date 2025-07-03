@@ -8,6 +8,7 @@ public class Voronoi
 {
     public List<VoronoiSite> Sites { get; private set; } = new();
     public List<VoronoiCell> Cells { get; private set; } = new();
+    public List<VoronoiEdge> Edges { get; private set; } = new();
 
     public Voronoi() { }
 
