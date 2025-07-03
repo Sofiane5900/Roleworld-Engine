@@ -4,8 +4,8 @@ namespace Roleworld.Engine;
 
 public class Camera2D
 {
-    public float X { get; set; } = 0f;
-    public float Y { get; set; } = 0f;
+    public float X { get; set; }
+    public float Y { get; set; }
     public float Zoom { get; set; } = 1.6f;
 
     public float MinZoom { get; set; } = 0.1f;
