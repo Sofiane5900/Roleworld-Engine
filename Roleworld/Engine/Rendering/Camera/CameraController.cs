@@ -7,10 +7,10 @@ public class CameraController
     private static Camera2D _camera;
     private static IKeyboard _keyboard;
 
-    public CameraController(Camera2D camera, IKeyboard _keyboard)
+    public CameraController(Camera2D camera, IKeyboard keyboard)
     {
         _camera = camera;
-        _keyboard = _keyboard;
+        _keyboard = keyboard;
     }
 
     private static void OnUpdate(double deltaTime)
