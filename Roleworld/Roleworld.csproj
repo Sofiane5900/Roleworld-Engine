@@ -21,7 +21,6 @@
         <Folder Include="Assets\" />
         <Folder Include="Engine\Assets\Shaders\" />
         <Folder Include="Engine\Assets\Textures\" />
-        <Folder Include="Engine\Map\Procedural\Voronoi\" />
     </ItemGroup>
 
 </Project>
