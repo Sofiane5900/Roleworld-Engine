@@ -54,6 +54,14 @@ public class Voronoi
 
             //  avoid duplicates, keep only dinstinct point
             cell.Vertices.AddRange(points.Distinct());
+
+            var center = new Vector2((float)site.X, (float)site.Y);
+            var sortedPoints = cell
+                .Vertices.OrderBy(p => MathF.Atan2(p.Y - center.Y, p.X - center.X))
+                .ToList();
+
+            cell.Vertices.Clear();
+            cell.Vertices.AddRange(sortedPoints);
             Cells.Add(cell);
         }
     }
