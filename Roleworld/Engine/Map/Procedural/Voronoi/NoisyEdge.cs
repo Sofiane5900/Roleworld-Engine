@@ -23,6 +23,14 @@ public class NoisyEdge
         }
     }
 
+    public static List<Vector2> MakeNoisyLine(Vector2 a, Vector2 b, Random rng, int depth = 2)
+    {
+        var points = new List<Vector2>();
+        Subdivide(points, a, b, rng, depth);
+        points.Add(b);
+        return points;
+    }
+
     private static void Subdivide(List<Vector2> points, Vector2 a, Vector2 b, Random rng, int depth)
     {
         if (depth == 0)
