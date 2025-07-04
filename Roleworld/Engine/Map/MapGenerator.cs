@@ -41,7 +41,7 @@ namespace Roleworld.Engine.Map
 
             // 2. Voronoi generation
 
-            int nbSites = 100;
+            int nbSites = 5000;
             var rand = new Random();
 
             for (int i = 0; i < nbSites; i++)
