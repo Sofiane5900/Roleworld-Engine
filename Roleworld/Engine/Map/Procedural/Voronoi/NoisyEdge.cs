@@ -22,4 +22,21 @@ public class NoisyEdge
             return $"{b.X:F2},{b.Y:F2}-{a.X:F2},{a.Y:F2}";
         }
     }
+
+    private static void Subdivide(List<Vector2> points, Vector2 a, Vector2 b, Random rng, int depth)
+    {
+        if (depth == 0)
+        {
+            points.Add(a);
+            return;
+        }
+
+        Vector2 mid = (a + b) / 2f;
+        Vector2 offset = new Vector2(-(b.Y - a.Y), b.X - a.X); // perpendicular
+        offset = Vector2.Normalize(offset) * ((float)(rng.NextDouble() - 0.5f) * 5f);
+
+        mid += offset;
+        Subdivide(points, a, mid, rng, depth - 1);
+        Subdivide(points, mid, b, rng, depth - 1);
+    }
 }
