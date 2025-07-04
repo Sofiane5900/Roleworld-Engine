@@ -62,6 +62,10 @@ public class Voronoi
 
             cell.Vertices.Clear();
             cell.Vertices.AddRange(sortedPoints);
+            Console.WriteLine(
+                $"Cell at {cell.Site.X},{cell.Site.Y} with {cell.Vertices.Count} vertices"
+            );
+
             Cells.Add(cell);
         }
     }
