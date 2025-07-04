@@ -53,6 +53,19 @@ namespace Roleworld.Engine.Map
 
             var bounds = new RectangleF(0, 0, width, height);
             voronoi.Generate();
+            voronoi.Relax(5, 5);
+
+            // affect terrain type to voronoi cells
+            foreach (var cell in voronoi.Cells)
+            {
+                int cx = (int)cell.Site.X;
+                int cy = (int)cell.Site.Y;
+                float heightValue = data.HeightMap[
+                    Math.Clamp(cx, 0, width - 1),
+                    Math.Clamp(cy, 0, height - 1)
+                ];
+                cell.TerrainType = GetTerrainType(heightValue);
+            }
 
             // inject voronoi cells in map data to generate them
             data.Cells.Clear();

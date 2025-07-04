@@ -29,6 +29,7 @@ public class MapRenderer
             Vector3 color = cell.TerrainType.GetColor();
 
             var sortedVertices = cell.Vertices;
+
             for (int i = 0; i < sortedVertices.Count; i++)
             {
                 var v = sortedVertices[i];
