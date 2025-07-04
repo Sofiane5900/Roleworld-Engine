@@ -56,15 +56,13 @@ public class Voronoi
             cell.Vertices.AddRange(points.Distinct());
 
             var center = new Vector2((float)site.X, (float)site.Y);
-            var sortedPoints = cell
-                .Vertices.OrderBy(p => MathF.Atan2(p.Y - center.Y, p.X - center.X))
-                .ToList();
+            var sortedPoints = site.ClockwisePoints.Select(p => new Vector2(
+                (float)p.X,
+                (float)p.Y
+            ));
 
             cell.Vertices.Clear();
             cell.Vertices.AddRange(sortedPoints);
-            Console.WriteLine(
-                $"Cell at {cell.Site.X},{cell.Site.Y} with {cell.Vertices.Count} vertices"
-            );
 
             Cells.Add(cell);
         }
