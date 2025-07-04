@@ -12,7 +12,6 @@ namespace Roleworld.Engine.Map
         public MapGenerator(int seed)
         {
             perlin = new PerlinNoise(seed);
-            voronoi = new Voronoi.Voronoi();
         }
 
         public MapData Generate(int width, int height)
@@ -40,8 +39,9 @@ namespace Roleworld.Engine.Map
             }
 
             // 2. Voronoi generation
+            voronoi = new Voronoi.Voronoi(0, 0, width, height);
 
-            int nbSites = 5000;
+            int nbSites = 4000;
             var rand = new Random();
 
             for (int i = 0; i < nbSites; i++)
@@ -52,19 +52,7 @@ namespace Roleworld.Engine.Map
             }
 
             var bounds = new RectangleF(0, 0, width, height);
-            voronoi.Generate(bounds);
-
-            // affect terrain type to voronoi cells
-            foreach (var cell in voronoi.Cells)
-            {
-                int cx = (int)cell.Site.X;
-                int cy = (int)cell.Site.Y;
-                float heightValue = data.HeightMap[
-                    Math.Clamp(cx, 0, width - 1),
-                    Math.Clamp(cy, 0, height - 1)
-                ];
-                cell.TerrainType = GetTerrainType(heightValue);
-            }
+            voronoi.Generate();
 
             // inject voronoi cells in map data to generate them
             data.Cells.Clear();
