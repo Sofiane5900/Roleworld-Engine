@@ -10,6 +10,7 @@
 
 
     <ItemGroup>
+        <PackageReference Include="SharpVoronoiLib" Version="1.0.5" />
         <PackageReference Include="Silk.NET.Input" Version="2.22.0" />
         <PackageReference Include="Silk.NET.Maths" Version="2.22.0" />
         <PackageReference Include="Silk.NET.OpenGL" Version="2.22.0" />
@@ -21,7 +22,6 @@
         <Folder Include="Assets\" />
         <Folder Include="Engine\Assets\Shaders\" />
         <Folder Include="Engine\Assets\Textures\" />
-        <Folder Include="Engine\Rendering\Camera\" />
     </ItemGroup>
 
 </Project>

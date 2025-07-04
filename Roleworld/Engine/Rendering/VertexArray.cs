@@ -5,7 +5,6 @@ namespace Roleworld.Engine;
 public class VertexArray
 {
     private readonly GL _gl;
-    private readonly uint _vao;
     private readonly uint _vbo;
     private readonly uint _ebo;
     public uint Handle { get; }
