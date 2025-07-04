@@ -54,6 +54,7 @@ public class Voronoi
 
             //  avoid duplicates, keep only dinstinct point
             cell.Vertices.AddRange(points.Distinct());
+            Cells.Add(cell);
         }
     }
 }
