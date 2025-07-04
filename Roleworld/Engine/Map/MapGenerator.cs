@@ -15,7 +15,7 @@ namespace Roleworld.Engine.Map
         {
             var data = new MapData(width, height);
             float[,] falloffMap = FallofMapGenerator.Generate(width, height);
-            float scale = 20f;
+            float scale = 150f;
 
             for (int x = 0; x < width; x++)
             {
