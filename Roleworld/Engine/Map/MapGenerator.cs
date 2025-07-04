@@ -5,10 +5,12 @@ namespace Roleworld.Engine.Map
     public class MapGenerator
     {
         private readonly PerlinNoise perlin;
+        private readonly Voronoi.Voronoi voronoi;
 
         public MapGenerator(int seed)
         {
             perlin = new PerlinNoise(seed);
+            voronoi = new Voronoi.Voronoi();
         }
 
         public MapData Generate(int width, int height)
