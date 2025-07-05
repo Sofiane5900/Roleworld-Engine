@@ -24,53 +24,27 @@ public class MapRenderer
 
         uint indexOffset = 0;
 
-        for (int y = 0; y < map.Height; y++)
+        foreach (var cell in map.Cells)
         {
-            for (int x = 0; x < map.Width; x++)
+            Vector3 color = cell.TerrainType.GetColor();
+
+            var sortedVertices = cell.Vertices;
+
+            for (int i = 0; i < sortedVertices.Count; i++)
             {
-                Vector3 color = map.BiomeMap[x, y].GetColor();
-
-                // quad 1x1 at position x, y
-                vertices.AddRange(
-                    new float[]
-                    {
-                        x,
-                        y,
-                        color.X,
-                        color.Y,
-                        color.Z, // Top-left
-                        x + 1,
-                        y,
-                        color.X,
-                        color.Y,
-                        color.Z, // Top-right
-                        x + 1,
-                        y + 1,
-                        color.X,
-                        color.Y,
-                        color.Z, // Bottom-right
-                        x,
-                        y + 1,
-                        color.X,
-                        color.Y,
-                        color.Z, // Bottom-left
-                    }
-                );
-
-                indices.AddRange(
-                    new uint[]
-                    {
-                        indexOffset,
-                        indexOffset + 1,
-                        indexOffset + 2,
-                        indexOffset,
-                        indexOffset + 2,
-                        indexOffset + 3,
-                    }
-                );
-
-                indexOffset += 4;
+                var v = sortedVertices[i];
+                vertices.AddRange(new float[] { v.X, v.Y, color.X, color.Y, color.Z });
             }
+
+            // triangulation
+            for (int i = 1; i < sortedVertices.Count - 1; i++)
+            {
+                indices.Add(indexOffset);
+                indices.Add(indexOffset + (uint)i);
+                indices.Add(indexOffset + (uint)(i + 1));
+            }
+
+            indexOffset += (uint)sortedVertices.Count;
         }
 
         _indexCount = indices.Count;

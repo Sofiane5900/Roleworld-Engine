@@ -1,3 +1,6 @@
+using Roleworld.Engine.Map.Procedural.Voronoi;
+using Roleworld.Engine.Map.Voronoi;
+
 namespace Roleworld.Engine.Map;
 
 public class MapData
@@ -6,6 +9,10 @@ public class MapData
     public int Height { get; }
     public float[,] HeightMap { get; }
     public TerrainType[,] BiomeMap { get; }
+
+    public List<VoronoiCell> Cells { get; } = new();
+
+    public List<NoisyEdge> NoisyEdges { get; } = new();
 
     public MapData(int width, int height)
     {

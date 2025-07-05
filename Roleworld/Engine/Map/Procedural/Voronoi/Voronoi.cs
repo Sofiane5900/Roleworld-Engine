@@ -6,54 +6,50 @@ namespace Roleworld.Engine.Map.Voronoi;
 
 public class Voronoi
 {
-    public List<VoronoiSite> Sites { get; private set; } = new();
+    private VoronoiPlane _plane;
+    public List<VoronoiSite> Sites => _plane.Sites;
     public List<VoronoiCell> Cells { get; private set; } = new();
     public List<VoronoiEdge> Edges { get; private set; } = new();
+    private List<VoronoiSite> _sites = new();
 
-    public Voronoi() { }
-
-    public void AddSite(VoronoiSite point)
+    public Voronoi(float left, float top, float right, float bottom)
     {
-        Sites.Add(point);
+        _plane = new VoronoiPlane(left, top, right, bottom);
     }
 
-    public void Generate(RectangleF bounds)
+    public void AddSite(VoronoiSite site)
     {
-        if (Sites.Count == 0)
+        _sites.Add(site);
+        _plane.SetSites(_sites);
+    }
+
+    public void Generate()
+    {
+        Edges = _plane.Tessellate();
+        UpdateCells();
+    }
+
+    public void Relax(int iterations = 1, int strength = 1)
+    {
+        for (int i = 0; i < iterations; i++)
         {
-            return;
+            Edges = _plane.Relax(strength);
         }
+        UpdateCells();
+    }
 
-        Edges = VoronoiPlane.TessellateOnce(
-            Sites,
-            bounds.Left,
-            bounds.Top,
-            bounds.Right,
-            bounds.Bottom
-        );
-
-        // remove old cells
+    private void UpdateCells()
+    {
         Cells.Clear();
-
         foreach (var site in Sites)
         {
-            var cell = new VoronoiCell(new VoronoiSite(site.X, site.Y));
-
-            // get all the vertices of the cell
-            var edgesForSite = Edges.Where(e => e.Left == site || e.Right == site).ToList();
-
-            var points = new List<Vector2>();
-
-            foreach (var edge in edgesForSite)
-            {
-                if (edge.Start != null)
-                    points.Add(new Vector2((float)edge.Start.X, (float)edge.Start.Y));
-                if (edge.End != null)
-                    points.Add(new Vector2((float)edge.End.X, (float)edge.End.Y));
-            }
-
-            //  avoid duplicates, keep only dinstinct point
-            cell.Vertices.AddRange(points.Distinct());
+            var cell = new VoronoiCell(site);
+            var sortedPoints = site.ClockwisePoints.Select(p => new Vector2(
+                (float)p.X,
+                (float)p.Y
+            ));
+            cell.Vertices.AddRange(sortedPoints);
+            Cells.Add(cell);
         }
     }
 }
