@@ -1,5 +1,6 @@
 using System.Diagnostics;
 using System.Drawing;
+using Roleworld.Engine.Map.Noise;
 
 namespace Roleworld.Engine.Map
 {

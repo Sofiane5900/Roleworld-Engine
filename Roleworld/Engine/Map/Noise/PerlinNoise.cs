@@ -1,4 +1,4 @@
-namespace Roleworld.Engine.Map;
+namespace Roleworld.Engine.Map.Noise;
 
 public class PerlinNoise
 {
