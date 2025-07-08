@@ -7,4 +7,5 @@ public class Center
     public Vector2 Position;
     public bool IsLand;
     public float Elevation;
+    public List<Corner> Corners = new();
 }
