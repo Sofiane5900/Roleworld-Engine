@@ -8,4 +8,5 @@ public class Center
     public bool IsLand;
     public float Elevation;
     public List<Corner> Corners = new();
+    public List<Center> Neighbors = new();
 }
