@@ -6,4 +6,6 @@ public class Edge
     public Corner Corner1;
     public Center Center0;
     public Center Center1;
+
+    public Edge() { }
 }
