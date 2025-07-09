@@ -4,6 +4,42 @@ namespace Roleworld.Engine.Map.Voronoi.Triangulation;
 
 public class DelaunayBuilder
 {
+    public static List<Triangle> Triangulate(List<Vector2> points)
+    {
+        List<Triangle> triangles = new();
+
+        // 1. create super triangle
+        Triangle superTriangle = CreateSuperTriangle(points);
+        triangles.Add(superTriangle);
+
+        foreach (var point in points)
+        {
+            // 2. find all triangles violating deulaunay rule
+            var badTriangles = triangles.Where(t => t.ContainsInCircumcircle(point)).ToList();
+
+            // 3. find the edge of the hole caused by the bad triangles
+            List<Edge2D> polygon = FindBoundary(badTriangles);
+
+            // 4. delete the affected bad triangles
+            triangles.RemoveAll(t => badTriangles.Contains(t));
+
+            // 5. re-triangulate the hole
+            foreach (var edge in polygon)
+            {
+                triangles.Add(new Triangle(edge.A, edge.B, point));
+            }
+        }
+
+        // 6. remove all triangles with a vertex of the super triangle
+        triangles.RemoveAll(t =>
+            t.HasVertex(superTriangle.A)
+            || t.HasVertex(superTriangle.B)
+            || t.HasVertex(superTriangle.C)
+        );
+
+        return triangles;
+    }
+
     private static Triangle CreateSuperTriangle(List<Vector2> points)
     {
         float minX = float.MaxValue;
@@ -37,7 +73,7 @@ public class DelaunayBuilder
         return new Triangle(p1, p2, p3);
     }
 
-    private List<Edge2D> FindBoundary(List<Triangle> badTriangles)
+    private static List<Edge2D> FindBoundary(List<Triangle> badTriangles)
     {
         Dictionary<Edge2D, int> edgeCount = new();
 
