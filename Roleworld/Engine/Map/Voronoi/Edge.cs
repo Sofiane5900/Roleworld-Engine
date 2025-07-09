@@ -17,4 +17,6 @@ public class Edge
         Center0 = center0;
         Center1 = center1;
     }
+
+    public Edge() { }
 }
