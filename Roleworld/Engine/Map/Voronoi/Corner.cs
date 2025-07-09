@@ -7,4 +7,5 @@ public class Corner
     public Vector2 Position;
     public List<Corner> Adjacent = new();
     public List<Center> Touches = new();
+    public List<Edge> Protrudes = new();
 }
