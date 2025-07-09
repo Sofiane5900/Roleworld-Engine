@@ -14,4 +14,7 @@ public class Triangle
         B = b;
         C = c;
     }
+
+    public List<Edge2D> GetEdges() =>
+        new() { new Edge2D(A, B), new Edge2D(B, C), new Edge2D(C, A) };
 }
