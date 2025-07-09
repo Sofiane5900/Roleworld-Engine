@@ -1,6 +1,6 @@
 using System.Numerics;
 
-namespace Roleworld.Engine.Map.Voronoi;
+namespace Roleworld.Engine.Map.Voronoi.Triangulation;
 
 public readonly struct Edge2D
 {
