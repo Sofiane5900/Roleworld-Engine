@@ -9,4 +9,5 @@ public class Center
     public float Elevation;
     public List<Corner> Corners = new();
     public List<Center> Neighbors = new();
+    public List<Edge> Borders = new();
 }
