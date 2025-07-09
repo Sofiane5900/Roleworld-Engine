@@ -13,4 +13,11 @@ public class Cell
         Center = center;
         Vertices = vertices;
     }
+
+    public List<Vector2> GetSortedVertices()
+    {
+        var center = Center.Position;
+
+        return Vertices.OrderBy(v => MathF.Atan2(v.Y - center.Y, v.X - center.X)).ToList();
+    }
 }
