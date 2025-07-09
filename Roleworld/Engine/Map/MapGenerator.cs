@@ -1,5 +1,6 @@
 using System.Diagnostics;
 using System.Drawing;
+using Roleworld.Engine.Map.Procedural.Noise;
 using SharpVoronoiLib;
 
 namespace Roleworld.Engine.Map
