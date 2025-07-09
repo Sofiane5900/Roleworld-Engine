@@ -18,6 +18,11 @@ public class Triangle
     public List<Edge2D> GetEdges() =>
         new() { new Edge2D(A, B), new Edge2D(B, C), new Edge2D(C, A) };
 
+    public bool HasVertex(Vector2 v)
+    {
+        return A == v || B == v || C == v;
+    }
+
     public bool ContainsInCircumcircle(Vector2 p)
     {
         float ax = A.X - p.X;
