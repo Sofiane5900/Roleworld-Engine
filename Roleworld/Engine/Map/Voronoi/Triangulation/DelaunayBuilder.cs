@@ -36,4 +36,35 @@ public class DelaunayBuilder
 
         return new Triangle(p1, p2, p3);
     }
+
+    private List<Edge2D> FindBoundary(List<Triangle> badTriangles)
+    {
+        Dictionary<Edge2D, int> edgeCount = new();
+
+        foreach (var triangle in badTriangles)
+        {
+            foreach (var edge in triangle.GetEdges())
+            {
+                bool found = false;
+
+                foreach (var key in edgeCount.Keys)
+                {
+                    if (edge.IsSameAs(key))
+                    {
+                        edgeCount[key]++;
+                        found = true;
+                        break;
+                    }
+                }
+
+                if (!found)
+                {
+                    edgeCount[edge] = 1;
+                }
+            }
+        }
+
+        // only keep triangles which edges are unique
+        return edgeCount.Where(kvp => kvp.Value == 1).Select(kvp => kvp.Key).ToList();
+    }
 }
