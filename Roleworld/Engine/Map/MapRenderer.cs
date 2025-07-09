@@ -24,28 +24,28 @@ public class MapRenderer
 
         uint indexOffset = 0;
 
-        // foreach (var cell in map.Cells)
-        // {
-        //     Vector3 color = cell.TerrainType.GetColor();
-        //
-        //     var sortedVertices = cell.Vertices;
-        //
-        //     for (int i = 0; i < sortedVertices.Count; i++)
-        //     {
-        //         var v = sortedVertices[i];
-        //         vertices.AddRange(new float[] { v.X, v.Y, color.X, color.Y, color.Z });
-        //     }
-        //
-        //     // triangulation
-        //     for (int i = 1; i < sortedVertices.Count - 1; i++)
-        //     {
-        //         indices.Add(indexOffset);
-        //         indices.Add(indexOffset + (uint)i);
-        //         indices.Add(indexOffset + (uint)(i + 1));
-        //     }
-        //
-        //     indexOffset += (uint)sortedVertices.Count;
-        // }
+        foreach (var cell in map.Cells)
+        {
+            Vector3 color = cell.TerrainType.GetColor();
+
+            var sortedVertices = cell.Vertices;
+
+            for (int i = 0; i < sortedVertices.Count; i++)
+            {
+                var v = sortedVertices[i];
+                vertices.AddRange(new float[] { v.X, v.Y, color.X, color.Y, color.Z });
+            }
+
+            // triangulation
+            for (int i = 1; i < sortedVertices.Count - 1; i++)
+            {
+                indices.Add(indexOffset);
+                indices.Add(indexOffset + (uint)i);
+                indices.Add(indexOffset + (uint)(i + 1));
+            }
+
+            indexOffset += (uint)sortedVertices.Count;
+        }
 
         _indexCount = indices.Count;
 
