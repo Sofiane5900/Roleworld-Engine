@@ -1,4 +1,4 @@
-using Roleworld.Engine.Map.Procedural.Voronoi;
+using Roleworld.Engine.Map.Voronoi;
 using Roleworld.Engine.Map.Voronoi;
 
 namespace Roleworld.Engine.Map;
@@ -12,7 +12,7 @@ public class MapData
 
     public List<VoronoiCell> Cells { get; } = new();
 
-    public List<NoisyEdge> NoisyEdges { get; } = new();
+    // public List<NoisyEdge> NoisyEdges { get; } = new();
 
     public MapData(int width, int height)
     {
