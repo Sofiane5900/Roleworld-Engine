@@ -12,4 +12,9 @@ public readonly struct Edge2D
         A = a;
         B = b;
     }
+
+    public bool IsSameAs(Edge2D other)
+    {
+        return (A == other.A && B == other.B) || (A == other.B && B == other.A);
+    }
 }
