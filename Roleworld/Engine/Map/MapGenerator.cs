@@ -1,14 +1,13 @@
 using System.Diagnostics;
 using System.Drawing;
-using Roleworld.Engine.Map.Noise;
+using SharpVoronoiLib;
 
 namespace Roleworld.Engine.Map
 {
     public class MapGenerator
     {
         private readonly PerlinNoise perlin;
-
-        // private Voronoi voronoi;
+        private Voronoi.Voronoi voronoi;
 
         public MapGenerator(int seed)
         {
@@ -40,7 +39,7 @@ namespace Roleworld.Engine.Map
             }
 
             // 2. Voronoi generation
-            // voronoi = new Voronoi.Voronoi(0, 0, width, height);
+            voronoi = new Voronoi.Voronoi(0, 0, width, height);
 
             int nbSites = 4000;
             var rand = new Random();
@@ -49,28 +48,28 @@ namespace Roleworld.Engine.Map
             {
                 float x = (float)(rand.NextDouble() * width);
                 float y = (float)(rand.NextDouble() * height);
-                // voronoi.AddSite(new VoronoiSite(x, y));
+                voronoi.AddSite(new VoronoiSite(x, y));
             }
 
             var bounds = new RectangleF(0, 0, width, height);
-            // voronoi.Generate();
-            // voronoi.Relax(3, 5); // par exemple 3 itérations
+            voronoi.Generate();
+            voronoi.Relax(5, 5);
 
             // affect terrain type to voronoi cells
-            // foreach (var cell in voronoi.Cells)
-            // {
-            //     int cx = (int)cell.Site.X;
-            //     int cy = (int)cell.Site.Y;
-            //     float heightValue = data.HeightMap[
-            //         Math.Clamp(cx, 0, width - 1),
-            //         Math.Clamp(cy, 0, height - 1)
-            //     ];
-            //     cell.TerrainType = GetTerrainType(heightValue);
-            // }
+            foreach (var cell in voronoi.Cells)
+            {
+                int cx = (int)cell.Site.X;
+                int cy = (int)cell.Site.Y;
+                float heightValue = data.HeightMap[
+                    Math.Clamp(cx, 0, width - 1),
+                    Math.Clamp(cy, 0, height - 1)
+                ];
+                cell.TerrainType = GetTerrainType(heightValue);
+            }
 
             // inject voronoi cells in map data to generate them
-            // data.Cells.Clear();
-            // data.Cells.AddRange(voronoi.Cells);
+            data.Cells.Clear();
+            data.Cells.AddRange(voronoi.Cells);
 
             return data;
         }
