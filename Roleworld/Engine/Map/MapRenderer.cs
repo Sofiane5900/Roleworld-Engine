@@ -100,6 +100,9 @@ public class MapRenderer
         _gl.BindVertexArray(0);
     }
 
+    /// <summary>
+    /// Called every frame to render the map using the data stored in GPU buffers.
+    /// </summary>
     public unsafe void Render()
     {
         _gl.BindVertexArray(_vao);
