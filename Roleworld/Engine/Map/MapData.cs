@@ -15,9 +15,7 @@ public class MapData
     public TerrainType[,] BiomeMap { get; }
 
     public List<VoronoiCell> Cells { get; } = new();
-
-    // public List<NoisyEdge> NoisyEdges { get; } = new();
-
+    public List<NoisyEdge> NoisyEdges { get; set; }
 
     public MapData(int width, int height)
     {
