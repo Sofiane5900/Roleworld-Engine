@@ -1,0 +1,79 @@
+\doxysection{Roleworld.\+Engine.\+Map.\+Map\+Data Class Reference}
+\hypertarget{class_roleworld_1_1_engine_1_1_map_1_1_map_data}{}\label{class_roleworld_1_1_engine_1_1_map_1_1_map_data}\index{Roleworld.Engine.Map.MapData@{Roleworld.Engine.Map.MapData}}
+
+
+Represents the data structure to of our map Store diemnsion, elevation, biome data, and \doxylink{namespace_roleworld_1_1_engine_1_1_map_1_1_voronoi}{Voronoi} regions (cells)  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_roleworld_1_1_engine_1_1_map_1_1_map_data_a125ae69014998b0044f2e608abfd1968}{Map\+Data}} (int width, int height)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_roleworld_1_1_engine_1_1_map_1_1_map_data_a25c12ece877a3fb6b60f083399f92948}{Width}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\item 
+int \mbox{\hyperlink{class_roleworld_1_1_engine_1_1_map_1_1_map_data_af0aefd0ac2d7460628a545efe8420ecb}{Height}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\item 
+float\mbox{[},\mbox{]} \mbox{\hyperlink{class_roleworld_1_1_engine_1_1_map_1_1_map_data_a46b52061ad8e58d10a36aaad0bd38abb}{Height\+Map}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\item 
+\mbox{\hyperlink{namespace_roleworld_1_1_engine_1_1_map_a6a1f264492bc03329d6b13e8365c00be}{Terrain\+Type}}\mbox{[},\mbox{]} \mbox{\hyperlink{class_roleworld_1_1_engine_1_1_map_1_1_map_data_aced34be08807e7e519cb354af8eca1f0}{Biome\+Map}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\item 
+List$<$ \mbox{\hyperlink{class_roleworld_1_1_engine_1_1_map_1_1_voronoi_1_1_voronoi_cell}{Voronoi\+Cell}} $>$ \mbox{\hyperlink{class_roleworld_1_1_engine_1_1_map_1_1_map_data_a235b22edec0d0128030f2ded1c762e6a}{Cells}} = new()\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents the data structure to of our map Store diemnsion, elevation, biome data, and \doxylink{namespace_roleworld_1_1_engine_1_1_map_1_1_voronoi}{Voronoi} regions (cells) 
+
+\label{doc-constructors}
+\Hypertarget{class_roleworld_1_1_engine_1_1_map_1_1_map_data_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_roleworld_1_1_engine_1_1_map_1_1_map_data_a125ae69014998b0044f2e608abfd1968}\index{Roleworld.Engine.Map.MapData@{Roleworld.Engine.Map.MapData}!MapData@{MapData}}
+\index{MapData@{MapData}!Roleworld.Engine.Map.MapData@{Roleworld.Engine.Map.MapData}}
+\doxysubsubsection{\texorpdfstring{MapData()}{MapData()}}
+{\footnotesize\ttfamily \label{class_roleworld_1_1_engine_1_1_map_1_1_map_data_a125ae69014998b0044f2e608abfd1968} 
+Roleworld.\+Engine.\+Map.\+Map\+Data.\+Map\+Data (\begin{DoxyParamCaption}\item[{int}]{width}{, }\item[{int}]{height}{}\end{DoxyParamCaption})}
+
+
+
+\label{doc-property-members}
+\Hypertarget{class_roleworld_1_1_engine_1_1_map_1_1_map_data_doc-property-members}
+\doxysubsection{Property Documentation}
+\Hypertarget{class_roleworld_1_1_engine_1_1_map_1_1_map_data_aced34be08807e7e519cb354af8eca1f0}\index{Roleworld.Engine.Map.MapData@{Roleworld.Engine.Map.MapData}!BiomeMap@{BiomeMap}}
+\index{BiomeMap@{BiomeMap}!Roleworld.Engine.Map.MapData@{Roleworld.Engine.Map.MapData}}
+\doxysubsubsection{\texorpdfstring{BiomeMap}{BiomeMap}}
+{\footnotesize\ttfamily \label{class_roleworld_1_1_engine_1_1_map_1_1_map_data_aced34be08807e7e519cb354af8eca1f0} 
+\mbox{\hyperlink{namespace_roleworld_1_1_engine_1_1_map_a6a1f264492bc03329d6b13e8365c00be}{Terrain\+Type}} \mbox{[},\mbox{]} Roleworld.\+Engine.\+Map.\+Map\+Data.\+Biome\+Map\hspace{0.3cm}{\ttfamily [get]}}
+
+\Hypertarget{class_roleworld_1_1_engine_1_1_map_1_1_map_data_a235b22edec0d0128030f2ded1c762e6a}\index{Roleworld.Engine.Map.MapData@{Roleworld.Engine.Map.MapData}!Cells@{Cells}}
+\index{Cells@{Cells}!Roleworld.Engine.Map.MapData@{Roleworld.Engine.Map.MapData}}
+\doxysubsubsection{\texorpdfstring{Cells}{Cells}}
+{\footnotesize\ttfamily \label{class_roleworld_1_1_engine_1_1_map_1_1_map_data_a235b22edec0d0128030f2ded1c762e6a} 
+List$<$\mbox{\hyperlink{class_roleworld_1_1_engine_1_1_map_1_1_voronoi_1_1_voronoi_cell}{Voronoi\+Cell}}$>$ Roleworld.\+Engine.\+Map.\+Map\+Data.\+Cells = new()\hspace{0.3cm}{\ttfamily [get]}}
+
+\Hypertarget{class_roleworld_1_1_engine_1_1_map_1_1_map_data_af0aefd0ac2d7460628a545efe8420ecb}\index{Roleworld.Engine.Map.MapData@{Roleworld.Engine.Map.MapData}!Height@{Height}}
+\index{Height@{Height}!Roleworld.Engine.Map.MapData@{Roleworld.Engine.Map.MapData}}
+\doxysubsubsection{\texorpdfstring{Height}{Height}}
+{\footnotesize\ttfamily \label{class_roleworld_1_1_engine_1_1_map_1_1_map_data_af0aefd0ac2d7460628a545efe8420ecb} 
+int Roleworld.\+Engine.\+Map.\+Map\+Data.\+Height\hspace{0.3cm}{\ttfamily [get]}}
+
+\Hypertarget{class_roleworld_1_1_engine_1_1_map_1_1_map_data_a46b52061ad8e58d10a36aaad0bd38abb}\index{Roleworld.Engine.Map.MapData@{Roleworld.Engine.Map.MapData}!HeightMap@{HeightMap}}
+\index{HeightMap@{HeightMap}!Roleworld.Engine.Map.MapData@{Roleworld.Engine.Map.MapData}}
+\doxysubsubsection{\texorpdfstring{HeightMap}{HeightMap}}
+{\footnotesize\ttfamily \label{class_roleworld_1_1_engine_1_1_map_1_1_map_data_a46b52061ad8e58d10a36aaad0bd38abb} 
+float \mbox{[},\mbox{]} Roleworld.\+Engine.\+Map.\+Map\+Data.\+Height\+Map\hspace{0.3cm}{\ttfamily [get]}}
+
+\Hypertarget{class_roleworld_1_1_engine_1_1_map_1_1_map_data_a25c12ece877a3fb6b60f083399f92948}\index{Roleworld.Engine.Map.MapData@{Roleworld.Engine.Map.MapData}!Width@{Width}}
+\index{Width@{Width}!Roleworld.Engine.Map.MapData@{Roleworld.Engine.Map.MapData}}
+\doxysubsubsection{\texorpdfstring{Width}{Width}}
+{\footnotesize\ttfamily \label{class_roleworld_1_1_engine_1_1_map_1_1_map_data_a25c12ece877a3fb6b60f083399f92948} 
+int Roleworld.\+Engine.\+Map.\+Map\+Data.\+Width\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Engine/\+Map/\mbox{\hyperlink{_map_data_8cs}{Map\+Data.\+cs}}\end{DoxyCompactItemize}
