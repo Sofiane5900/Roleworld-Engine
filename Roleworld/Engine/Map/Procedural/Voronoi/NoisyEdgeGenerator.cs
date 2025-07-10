@@ -1,4 +1,5 @@
 using System.Numerics;
+using SharpVoronoiLib;
 
 namespace Roleworld.Engine.Map.Voronoi;
 
@@ -8,6 +9,39 @@ namespace Roleworld.Engine.Map.Voronoi;
 /// </summary>
 public class NoisyEdgeGenerator
 {
+    /// <summary>
+    /// Generates a noisy version of the given Voronoi edge, using midpoint displacement.
+    /// </summary>
+    /// <param name="edge">The Voronoi edge to transform.</param>
+    /// <param name="levels">The number of subdivision levels (2–5 recommended).</param>
+    /// <param name="amplitude">The maximum noise displacement at the first level.</param>
+    /// <param name="rng">A random number generator (deterministic if needed).</param>
+    /// <returns>A NoisyEdge containing the original edge and its noisy render points.</returns>
+    public static NoisyEdge Generate(VoronoiEdge edge, int levels, float amplitude, Random rng)
+    {
+        var points = new List<Vector2>();
+        var start = new Vector2((float)edge.Start.X, (float)edge.Start.Y);
+        var end = new Vector2((float)edge.End.X, (float)edge.End.Y);
+
+        points.Add(start);
+
+        // Get centers
+        Vector2? left = edge.Left is not null
+            ? new Vector2((float)edge.Left.X, (float)edge.Left.Y)
+            : null;
+        Vector2? right = edge.Right is not null
+            ? new Vector2((float)edge.Right.X, (float)edge.Right.Y)
+            : null;
+
+        // Safety: border edges fallback to center of screen if needed
+        var centerA = left ?? right ?? (start + end) / 2;
+        var centerB = right ?? left ?? (start + end) / 2;
+
+        Subdivide(points, start, end, centerA, centerB, levels, amplitude, rng);
+
+        return new NoisyEdge(edge, points);
+    }
+
     private static void Subdivide(
         List<Vector2> result,
         Vector2 a,
