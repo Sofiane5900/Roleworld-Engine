@@ -17,6 +17,10 @@ public class MapRenderer
         _gl = gl;
     }
 
+    /// <summary>
+    /// Prepares the MapData for rendering, construct the GPU buffers (VAO, VBO, EBO)
+    /// </summary>
+    /// <param name="map">Object <c>MapData</c> containing the Voronoi Cells to draw</param>
     public unsafe void Build(MapData map)
     {
         List<float> vertices = new();
