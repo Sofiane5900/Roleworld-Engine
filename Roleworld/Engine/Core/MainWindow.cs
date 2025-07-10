@@ -26,6 +26,12 @@ public class MainWindow
     private static CameraController _cameraController = null!;
     private static IKeyboard _keyboard = null!;
 
+    /// <summary>
+    ///  Generate the main window of Roleworld engine
+    /// </summary>
+    /// <remarks>
+    /// This method configure GFLW, OpenGL, and the main loop of our engine
+    /// </remarks>
     public static void ConstructWindow()
     {
         WindowOptions mainWindowOption = WindowOptions.Default with
