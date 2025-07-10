@@ -1,0 +1,49 @@
+\doxysection{Roleworld.\+Engine.\+Map.\+Voronoi.\+Noisy\+Edge\+Generator Class Reference}
+\hypertarget{class_roleworld_1_1_engine_1_1_map_1_1_voronoi_1_1_noisy_edge_generator}{}\label{class_roleworld_1_1_engine_1_1_map_1_1_voronoi_1_1_noisy_edge_generator}\index{Roleworld.Engine.Map.Voronoi.NoisyEdgeGenerator@{Roleworld.Engine.Map.Voronoi.NoisyEdgeGenerator}}
+
+
+Utility class to generate a noisy visual representation of \doxylink{class_roleworld_1_1_engine_1_1_map_1_1_voronoi_1_1_voronoi}{Voronoi} edges. This is used to make biome borders and coastlines look more natural.  
+
+
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_roleworld_1_1_engine_1_1_map_1_1_voronoi_1_1_noisy_edge}{Noisy\+Edge}} \mbox{\hyperlink{class_roleworld_1_1_engine_1_1_map_1_1_voronoi_1_1_noisy_edge_generator_ac897a04bceeb4f879f4f4799cb1b5463}{Generate}} (Voronoi\+Edge edge, int levels, float amplitude, Random rng)
+\begin{DoxyCompactList}\small\item\em Generates a noisy version of the given \doxylink{class_roleworld_1_1_engine_1_1_map_1_1_voronoi_1_1_voronoi}{Voronoi} edge, using midpoint displacement. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Utility class to generate a noisy visual representation of \doxylink{class_roleworld_1_1_engine_1_1_map_1_1_voronoi_1_1_voronoi}{Voronoi} edges. This is used to make biome borders and coastlines look more natural. 
+
+\label{doc-func-members}
+\Hypertarget{class_roleworld_1_1_engine_1_1_map_1_1_voronoi_1_1_noisy_edge_generator_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_roleworld_1_1_engine_1_1_map_1_1_voronoi_1_1_noisy_edge_generator_ac897a04bceeb4f879f4f4799cb1b5463}\index{Roleworld.Engine.Map.Voronoi.NoisyEdgeGenerator@{Roleworld.Engine.Map.Voronoi.NoisyEdgeGenerator}!Generate@{Generate}}
+\index{Generate@{Generate}!Roleworld.Engine.Map.Voronoi.NoisyEdgeGenerator@{Roleworld.Engine.Map.Voronoi.NoisyEdgeGenerator}}
+\doxysubsubsection{\texorpdfstring{Generate()}{Generate()}}
+{\footnotesize\ttfamily \label{class_roleworld_1_1_engine_1_1_map_1_1_voronoi_1_1_noisy_edge_generator_ac897a04bceeb4f879f4f4799cb1b5463} 
+\mbox{\hyperlink{class_roleworld_1_1_engine_1_1_map_1_1_voronoi_1_1_noisy_edge}{Noisy\+Edge}} Roleworld.\+Engine.\+Map.\+Voronoi.\+Noisy\+Edge\+Generator.\+Generate (\begin{DoxyParamCaption}\item[{Voronoi\+Edge}]{edge}{, }\item[{int}]{levels}{, }\item[{float}]{amplitude}{, }\item[{Random}]{rng}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Generates a noisy version of the given \doxylink{class_roleworld_1_1_engine_1_1_map_1_1_voronoi_1_1_voronoi}{Voronoi} edge, using midpoint displacement. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em edge} & The \doxylink{class_roleworld_1_1_engine_1_1_map_1_1_voronoi_1_1_voronoi}{Voronoi} edge to transform.\\
+\hline
+{\em levels} & The number of subdivision levels (2–5 recommended).\\
+\hline
+{\em amplitude} & The maximum noise displacement at the first level.\\
+\hline
+{\em rng} & A random number generator (deterministic if needed).\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A \doxylink{class_roleworld_1_1_engine_1_1_map_1_1_voronoi_1_1_noisy_edge}{Noisy\+Edge} containing the original edge and its noisy render points.
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Engine/\+Map/\+Procedural/\+Voronoi/\mbox{\hyperlink{_noisy_edge_generator_8cs}{Noisy\+Edge\+Generator.\+cs}}\end{DoxyCompactItemize}
