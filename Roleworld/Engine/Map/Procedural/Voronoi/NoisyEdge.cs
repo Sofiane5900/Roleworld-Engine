@@ -8,6 +8,12 @@ namespace Roleworld.Engine.Map.Voronoi;
 /// </summary>
 public class NoisyEdge
 {
-    public VoronoiEdge Edge;
-    public List<Vector2> NoisyPoints;
+    public VoronoiEdge Edge { get; }
+    public List<Vector2> NoisyPoints { get; }
+
+    public NoisyEdge(VoronoiEdge edge, List<Vector2> noisyPoints)
+    {
+        Edge = edge;
+        NoisyPoints = noisyPoints;
+    }
 }
