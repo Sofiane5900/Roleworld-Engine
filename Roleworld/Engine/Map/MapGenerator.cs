@@ -49,7 +49,7 @@ namespace Roleworld.Engine.Map
             // 2. Voronoi generation
             voronoi = new Voronoi.Voronoi(0, 0, width, height);
 
-            int nbSites = 1000;
+            int nbSites = 2000;
             var rand = new Random();
 
             for (int i = 0; i < nbSites; i++)
