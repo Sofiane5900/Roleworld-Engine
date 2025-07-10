@@ -96,7 +96,9 @@ $(function(){initNavTree('class_roleworld_1_1_engine_1_1_rendering_1_1_map_rende
 Public Member Functions</h2></td></tr>
 <tr class="memitem:abfebc386f2a4655b5ce10bef39ea22e3" id="r_abfebc386f2a4655b5ce10bef39ea22e3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abfebc386f2a4655b5ce10bef39ea22e3">MapRenderer</a> (GL gl)</td></tr>
 <tr class="memitem:a6c425c1951787861b71e1afad2bb550f" id="r_a6c425c1951787861b71e1afad2bb550f"><td class="memItemLeft" align="right" valign="top">unsafe void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6c425c1951787861b71e1afad2bb550f">Build</a> (<a class="el" href="class_roleworld_1_1_engine_1_1_map_1_1_map_data.html">MapData</a> map)</td></tr>
+<tr class="memdesc:a6c425c1951787861b71e1afad2bb550f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Prepares the <a class="el" href="class_roleworld_1_1_engine_1_1_map_1_1_map_data.html" title="Represents the data structure to of our map Store diemnsion, elevation, biome data,...">MapData</a> for rendering, construct the GPU buffers (VAO, VBO, EBO)  <br /></td></tr>
 <tr class="memitem:a7083baab8dfbca68ad0512a1bf476088" id="r_a7083baab8dfbca68ad0512a1bf476088"><td class="memItemLeft" align="right" valign="top">unsafe void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7083baab8dfbca68ad0512a1bf476088">Render</a> ()</td></tr>
+<tr class="memdesc:a7083baab8dfbca68ad0512a1bf476088"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called every frame to render the map using the data stored in GPU buffers.  <br /></td></tr>
 </table>
 <a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="abfebc386f2a4655b5ce10bef39ea22e3" name="abfebc386f2a4655b5ce10bef39ea22e3"></a>
@@ -132,6 +134,14 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Prepares the <a class="el" href="class_roleworld_1_1_engine_1_1_map_1_1_map_data.html" title="Represents the data structure to of our map Store diemnsion, elevation, biome data,...">MapData</a> for rendering, construct the GPU buffers (VAO, VBO, EBO) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">map</td><td>Object <code><a class="el" href="class_roleworld_1_1_engine_1_1_map_1_1_map_data.html" title="Represents the data structure to of our map Store diemnsion, elevation, biome data,...">MapData</a></code> containing the <a class="el" href="namespace_roleworld_1_1_engine_1_1_map_1_1_voronoi.html">Voronoi</a> Cells to draw</td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a7083baab8dfbca68ad0512a1bf476088" name="a7083baab8dfbca68ad0512a1bf476088"></a>
@@ -148,6 +158,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Called every frame to render the map using the data stored in GPU buffers. </p>
 
 </div>
 </div>
