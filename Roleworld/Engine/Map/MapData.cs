@@ -3,6 +3,10 @@ using Roleworld.Engine.Map.Voronoi;
 
 namespace Roleworld.Engine.Map;
 
+/// <summary>
+///  Represents the data structure to of our map
+/// Store diemnsion, elevation, biome data, and Voronoi regions (cells)
+/// </summary>
 public class MapData
 {
     public int Width { get; }
@@ -13,6 +17,7 @@ public class MapData
     public List<VoronoiCell> Cells { get; } = new();
 
     // public List<NoisyEdge> NoisyEdges { get; } = new();
+
 
     public MapData(int width, int height)
     {
