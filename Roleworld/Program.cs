@@ -8,6 +8,9 @@ namespace Roleworld
 {
     public class Program
     {
+        /// <summary>
+        ///  Entry point of the engine
+        /// </summary>
         public static void Main(string[] args)
         {
             MainWindow.ConstructWindow();

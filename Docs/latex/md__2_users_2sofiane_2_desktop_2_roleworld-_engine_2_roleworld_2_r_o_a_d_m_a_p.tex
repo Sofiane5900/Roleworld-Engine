@@ -1,0 +1,165 @@
+\chapter{🛠️ Role\+World Engine – Development Roadmap }
+\hypertarget{md__2_users_2sofiane_2_desktop_2_roleworld-_engine_2_roleworld_2_r_o_a_d_m_a_p}{}\label{md__2_users_2sofiane_2_desktop_2_roleworld-_engine_2_roleworld_2_r_o_a_d_m_a_p}\index{🛠️ RoleWorld Engine – Development Roadmap@{🛠️ RoleWorld Engine – Development Roadmap}}
+\label{md__2_users_2sofiane_2_desktop_2_roleworld-_engine_2_roleworld_2_r_o_a_d_m_a_p_autotoc_md0}%
+\Hypertarget{md__2_users_2sofiane_2_desktop_2_roleworld-_engine_2_roleworld_2_r_o_a_d_m_a_p_autotoc_md0}%
+
+
+This roadmap provides a step-\/by-\/step technical plan to implement the Role\+World Engine from core logic to usable GUI tools. The goal is to start small, test internal logic early, and grow toward a modular and living system.
+
+\DoxyHorRuler{0}
+\hypertarget{md__2_users_2sofiane_2_desktop_2_roleworld-_engine_2_roleworld_2_r_o_a_d_m_a_p_autotoc_md2}{}\doxysection{\texorpdfstring{✅ Phase 1 — Core Loop \& Simulation Skeleton}{✅ Phase 1 — Core Loop \& Simulation Skeleton}}\label{md__2_users_2sofiane_2_desktop_2_roleworld-_engine_2_roleworld_2_r_o_a_d_m_a_p_autotoc_md2}
+\begin{quote}
+{\itshape Focus\+: Engine heartbeat, entity system, and simulation clock.} \end{quote}
+
+
+
+\begin{DoxyItemize}
+\item \mbox{[}x\mbox{]} Create application window (Silk.\+NET.\+Windowing)
+\item \mbox{[} \mbox{]} Implement the main loop ({\ttfamily Handle\+Input}, {\ttfamily Update\+Simulation}, {\ttfamily Render})
+\item \mbox{[} \mbox{]} Add time management\+: {\ttfamily Tick}, {\ttfamily Delta\+Time}, and pause/resume
+\item \mbox{[} \mbox{]} Build a minimal {\ttfamily Entity} structure with unique ID
+\item \mbox{[} \mbox{]} Implement component storage (dictionary-\/based)
+\item \mbox{[} \mbox{]} Create a {\ttfamily World} class to manage all entities and systems
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+\hypertarget{md__2_users_2sofiane_2_desktop_2_roleworld-_engine_2_roleworld_2_r_o_a_d_m_a_p_autotoc_md4}{}\doxysection{\texorpdfstring{🧱 Phase 2 — Entities \& Components Design}{🧱 Phase 2 — Entities \& Components Design}}\label{md__2_users_2sofiane_2_desktop_2_roleworld-_engine_2_roleworld_2_r_o_a_d_m_a_p_autotoc_md4}
+\begin{quote}
+{\itshape Focus\+: Make the world data-\/driven and modular.} \end{quote}
+
+
+
+\begin{DoxyItemize}
+\item \mbox{[} \mbox{]} Define core components\+:
+\begin{DoxyItemize}
+\item \mbox{[} \mbox{]} {\ttfamily Position}
+\item \mbox{[} \mbox{]} {\ttfamily Name}
+\item \mbox{[} \mbox{]} {\ttfamily Faction}
+\item \mbox{[} \mbox{]} {\ttfamily Age}
+\end{DoxyItemize}
+\item \mbox{[} \mbox{]} Add basic entity factory methods (create character, faction, town)
+\item \mbox{[} \mbox{]} Implement serialization-\/friendly data structures
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+\hypertarget{md__2_users_2sofiane_2_desktop_2_roleworld-_engine_2_roleworld_2_r_o_a_d_m_a_p_autotoc_md6}{}\doxysection{\texorpdfstring{🌀 Phase 3 — Systems \& World Simulation}{🌀 Phase 3 — Systems \& World Simulation}}\label{md__2_users_2sofiane_2_desktop_2_roleworld-_engine_2_roleworld_2_r_o_a_d_m_a_p_autotoc_md6}
+\begin{quote}
+{\itshape Focus\+: Run logic across the world each tick.} \end{quote}
+
+
+
+\begin{DoxyItemize}
+\item \mbox{[} \mbox{]} Create tick-\/based systems\+:
+\begin{DoxyItemize}
+\item \mbox{[} \mbox{]} {\ttfamily Age\+System} (increment age)
+\item \mbox{[} \mbox{]} {\ttfamily Movement\+System} (random movement)
+\item \mbox{[} \mbox{]} {\ttfamily Event\+System} (chance-\/based events)
+\end{DoxyItemize}
+\item \mbox{[} \mbox{]} Build a {\ttfamily Simulation\+Engine} class to manage all systems
+\item \mbox{[} \mbox{]} Log simulation steps to console for debugging (no GUI yet)
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+\hypertarget{md__2_users_2sofiane_2_desktop_2_roleworld-_engine_2_roleworld_2_r_o_a_d_m_a_p_autotoc_md8}{}\doxysection{\texorpdfstring{💾 Phase 4 — Persistence Layer}{💾 Phase 4 — Persistence Layer}}\label{md__2_users_2sofiane_2_desktop_2_roleworld-_engine_2_roleworld_2_r_o_a_d_m_a_p_autotoc_md8}
+\begin{quote}
+{\itshape Focus\+: Save/load the entire world state.} \end{quote}
+
+
+
+\begin{DoxyItemize}
+\item \mbox{[} \mbox{]} Implement a JSON-\/based save system
+\item \mbox{[} \mbox{]} Store all entities and components with metadata
+\item \mbox{[} \mbox{]} Add versioning to saves for future compatibility
+\item \mbox{[} \mbox{]} Load saved state into the {\ttfamily World} cleanly
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+\hypertarget{md__2_users_2sofiane_2_desktop_2_roleworld-_engine_2_roleworld_2_r_o_a_d_m_a_p_autotoc_md10}{}\doxysection{\texorpdfstring{🗺️ Phase 5 — World Map (Visual Placeholder)}{🗺️ Phase 5 — World Map (Visual Placeholder)}}\label{md__2_users_2sofiane_2_desktop_2_roleworld-_engine_2_roleworld_2_r_o_a_d_m_a_p_autotoc_md10}
+\begin{quote}
+{\itshape Focus\+: Visual context of the world, non-\/interactive.} \end{quote}
+
+
+
+\begin{DoxyItemize}
+\item \mbox{[} \mbox{]} Initialize Open\+GL 2D context with Silk.\+NET
+\item \mbox{[} \mbox{]} Draw a static tiled map or background
+\item \mbox{[} \mbox{]} Render {\ttfamily Position} components as dots/entities
+\item \mbox{[} \mbox{]} Camera\+: Pan and Zoom support
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+\hypertarget{md__2_users_2sofiane_2_desktop_2_roleworld-_engine_2_roleworld_2_r_o_a_d_m_a_p_autotoc_md12}{}\doxysection{\texorpdfstring{🖱️ Phase 6 — Input \& Entity Selection}{🖱️ Phase 6 — Input \& Entity Selection}}\label{md__2_users_2sofiane_2_desktop_2_roleworld-_engine_2_roleworld_2_r_o_a_d_m_a_p_autotoc_md12}
+\begin{quote}
+{\itshape Focus\+: Interact with the map.} \end{quote}
+
+
+
+\begin{DoxyItemize}
+\item \mbox{[} \mbox{]} Capture mouse input \& map coordinates
+\item \mbox{[} \mbox{]} Click to select an entity on the map
+\item \mbox{[} \mbox{]} Display data in console (or temporary overlay panel)
+\item \mbox{[} \mbox{]} Keyboard shortcuts for debug (pause, tick step)
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+\hypertarget{md__2_users_2sofiane_2_desktop_2_roleworld-_engine_2_roleworld_2_r_o_a_d_m_a_p_autotoc_md14}{}\doxysection{\texorpdfstring{🪟 Phase 7 — GUI Layer}{🪟 Phase 7 — GUI Layer}}\label{md__2_users_2sofiane_2_desktop_2_roleworld-_engine_2_roleworld_2_r_o_a_d_m_a_p_autotoc_md14}
+\begin{quote}
+{\itshape Focus\+: Build the windowing system and basic panels.} \end{quote}
+
+
+
+\begin{DoxyItemize}
+\item \mbox{[} \mbox{]} Design minimal immediate-\/mode UI framework
+\item \mbox{[} \mbox{]} Create resizable, draggable windows
+\item \mbox{[} \mbox{]} Create entity inspection panel (name, stats, etc.)
+\item \mbox{[} \mbox{]} Implement context menus / actions
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+\hypertarget{md__2_users_2sofiane_2_desktop_2_roleworld-_engine_2_roleworld_2_r_o_a_d_m_a_p_autotoc_md16}{}\doxysection{\texorpdfstring{🔃 Phase 8 — Dynamic Events \& AI Decisions}{🔃 Phase 8 — Dynamic Events \& AI Decisions}}\label{md__2_users_2sofiane_2_desktop_2_roleworld-_engine_2_roleworld_2_r_o_a_d_m_a_p_autotoc_md16}
+\begin{quote}
+{\itshape Focus\+: Add systems that simulate autonomy and consequence.} \end{quote}
+
+
+
+\begin{DoxyItemize}
+\item \mbox{[} \mbox{]} Add a basic event system (births, deaths, alliances)
+\item \mbox{[} \mbox{]} Create a {\ttfamily Decision\+System} for autonomous character actions
+\item \mbox{[} \mbox{]} Log events and decisions chronologically
+\item \mbox{[} \mbox{]} Prepare GUI event history/log panel
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+\hypertarget{md__2_users_2sofiane_2_desktop_2_roleworld-_engine_2_roleworld_2_r_o_a_d_m_a_p_autotoc_md18}{}\doxysection{\texorpdfstring{📚 Phase 9 — Documentation \& Developer Tooling}{📚 Phase 9 — Documentation \& Developer Tooling}}\label{md__2_users_2sofiane_2_desktop_2_roleworld-_engine_2_roleworld_2_r_o_a_d_m_a_p_autotoc_md18}
+\begin{quote}
+{\itshape Focus\+: Prepare for open contribution and scaling.} \end{quote}
+
+
+
+\begin{DoxyItemize}
+\item \mbox{[} \mbox{]} Generate code documentation
+\item \mbox{[} \mbox{]} Create usage examples (code + screenshots)
+\item \mbox{[} \mbox{]} Write contributing guide
+\item \mbox{[} \mbox{]} Add test scenes or simulation presets
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+\hypertarget{md__2_users_2sofiane_2_desktop_2_roleworld-_engine_2_roleworld_2_r_o_a_d_m_a_p_autotoc_md20}{}\doxysection{\texorpdfstring{🔮 Long-\/\+Term Ideas (Post-\/\+MVP)}{🔮 Long-\/\+Term Ideas (Post-\/\+MVP)}}\label{md__2_users_2sofiane_2_desktop_2_roleworld-_engine_2_roleworld_2_r_o_a_d_m_a_p_autotoc_md20}
+
+\begin{DoxyItemize}
+\item \mbox{[} \mbox{]} Procedural map generation
+\item \mbox{[} \mbox{]} Dynastic bloodline simulation
+\item \mbox{[} \mbox{]} Faction reputation and diplomatic memory
+\item \mbox{[} \mbox{]} Crime, culture, religion systems
+\item \mbox{[} \mbox{]} Modding support (JSON or scripting)
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+\hypertarget{md__2_users_2sofiane_2_desktop_2_roleworld-_engine_2_roleworld_2_r_o_a_d_m_a_p_autotoc_md22}{}\doxysection{\texorpdfstring{🧭 Final Note}{🧭 Final Note}}\label{md__2_users_2sofiane_2_desktop_2_roleworld-_engine_2_roleworld_2_r_o_a_d_m_a_p_autotoc_md22}
+\begin{quote}
+Build systems first. GUI later. Everything observable via logs before UI. \end{quote}
+
+
+This roadmap is iterative — each phase builds upon the last. Small victories (like a character aging or a faction forming) are already wins.
+
+Stay modular. Stay systemic. Let the world live without you. 

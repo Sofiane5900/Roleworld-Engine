@@ -1,0 +1,57 @@
+\doxysection{Roleworld.\+Engine.\+Rendering.\+Map\+Renderer Class Reference}
+\hypertarget{class_roleworld_1_1_engine_1_1_rendering_1_1_map_renderer}{}\label{class_roleworld_1_1_engine_1_1_rendering_1_1_map_renderer}\index{Roleworld.Engine.Rendering.MapRenderer@{Roleworld.Engine.Rendering.MapRenderer}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_roleworld_1_1_engine_1_1_rendering_1_1_map_renderer_abfebc386f2a4655b5ce10bef39ea22e3}{Map\+Renderer}} (GL gl)
+\item 
+unsafe void \mbox{\hyperlink{class_roleworld_1_1_engine_1_1_rendering_1_1_map_renderer_a6c425c1951787861b71e1afad2bb550f}{Build}} (\mbox{\hyperlink{class_roleworld_1_1_engine_1_1_map_1_1_map_data}{Map\+Data}} map)
+\begin{DoxyCompactList}\small\item\em Prepares the \doxylink{class_roleworld_1_1_engine_1_1_map_1_1_map_data}{Map\+Data} for rendering, construct the GPU buffers (VAO, VBO, EBO) \end{DoxyCompactList}\item 
+unsafe void \mbox{\hyperlink{class_roleworld_1_1_engine_1_1_rendering_1_1_map_renderer_a7083baab8dfbca68ad0512a1bf476088}{Render}} ()
+\begin{DoxyCompactList}\small\item\em Called every frame to render the map using the data stored in GPU buffers. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\label{doc-constructors}
+\Hypertarget{class_roleworld_1_1_engine_1_1_rendering_1_1_map_renderer_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_roleworld_1_1_engine_1_1_rendering_1_1_map_renderer_abfebc386f2a4655b5ce10bef39ea22e3}\index{Roleworld.Engine.Rendering.MapRenderer@{Roleworld.Engine.Rendering.MapRenderer}!MapRenderer@{MapRenderer}}
+\index{MapRenderer@{MapRenderer}!Roleworld.Engine.Rendering.MapRenderer@{Roleworld.Engine.Rendering.MapRenderer}}
+\doxysubsubsection{\texorpdfstring{MapRenderer()}{MapRenderer()}}
+{\footnotesize\ttfamily \label{class_roleworld_1_1_engine_1_1_rendering_1_1_map_renderer_abfebc386f2a4655b5ce10bef39ea22e3} 
+Roleworld.\+Engine.\+Rendering.\+Map\+Renderer.\+Map\+Renderer (\begin{DoxyParamCaption}\item[{GL}]{gl}{}\end{DoxyParamCaption})}
+
+
+
+\label{doc-func-members}
+\Hypertarget{class_roleworld_1_1_engine_1_1_rendering_1_1_map_renderer_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_roleworld_1_1_engine_1_1_rendering_1_1_map_renderer_a6c425c1951787861b71e1afad2bb550f}\index{Roleworld.Engine.Rendering.MapRenderer@{Roleworld.Engine.Rendering.MapRenderer}!Build@{Build}}
+\index{Build@{Build}!Roleworld.Engine.Rendering.MapRenderer@{Roleworld.Engine.Rendering.MapRenderer}}
+\doxysubsubsection{\texorpdfstring{Build()}{Build()}}
+{\footnotesize\ttfamily \label{class_roleworld_1_1_engine_1_1_rendering_1_1_map_renderer_a6c425c1951787861b71e1afad2bb550f} 
+unsafe void Roleworld.\+Engine.\+Rendering.\+Map\+Renderer.\+Build (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_roleworld_1_1_engine_1_1_map_1_1_map_data}{Map\+Data}}}]{map}{}\end{DoxyParamCaption})}
+
+
+
+Prepares the \doxylink{class_roleworld_1_1_engine_1_1_map_1_1_map_data}{Map\+Data} for rendering, construct the GPU buffers (VAO, VBO, EBO) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em map} & Object {\ttfamily \doxylink{class_roleworld_1_1_engine_1_1_map_1_1_map_data}{Map\+Data}} containing the \doxylink{namespace_roleworld_1_1_engine_1_1_map_1_1_voronoi}{Voronoi} Cells to draw\\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_roleworld_1_1_engine_1_1_rendering_1_1_map_renderer_a7083baab8dfbca68ad0512a1bf476088}\index{Roleworld.Engine.Rendering.MapRenderer@{Roleworld.Engine.Rendering.MapRenderer}!Render@{Render}}
+\index{Render@{Render}!Roleworld.Engine.Rendering.MapRenderer@{Roleworld.Engine.Rendering.MapRenderer}}
+\doxysubsubsection{\texorpdfstring{Render()}{Render()}}
+{\footnotesize\ttfamily \label{class_roleworld_1_1_engine_1_1_rendering_1_1_map_renderer_a7083baab8dfbca68ad0512a1bf476088} 
+unsafe void Roleworld.\+Engine.\+Rendering.\+Map\+Renderer.\+Render (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+Called every frame to render the map using the data stored in GPU buffers. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Engine/\+Map/\mbox{\hyperlink{_map_renderer_8cs}{Map\+Renderer.\+cs}}\end{DoxyCompactItemize}

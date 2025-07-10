@@ -3,12 +3,18 @@ using Silk.NET.OpenGL;
 
 namespace Roleworld.Engine;
 
+/// <summary>
+/// Encapsulates an OpenGL shader program, used to render graphics on the GPU.
+/// </summary>
 public class Shader
 {
     private readonly GL _gl;
     private static uint _program;
     public uint Handle => _program;
 
+    /// <summary>
+    /// Processes each vertex by applying the projection matrix and passing attributes (position, color).
+    /// </summary>
     const string vertexCode =
         @"
     #version 330 core
@@ -26,6 +32,9 @@ public class Shader
      }
 ";
 
+    /// <summary>
+    /// Assign a final color to each fragment (later to be called pixel) on the screen.
+    /// </summary>
     const string fragmentCode =
         @"
     #version 330 core

@@ -1,0 +1,89 @@
+\doxysection{Roleworld.\+Engine.\+Map.\+Procedural.\+Noise.\+Perlin\+Noise Class Reference}
+\hypertarget{class_roleworld_1_1_engine_1_1_map_1_1_procedural_1_1_noise_1_1_perlin_noise}{}\label{class_roleworld_1_1_engine_1_1_map_1_1_procedural_1_1_noise_1_1_perlin_noise}\index{Roleworld.Engine.Map.Procedural.Noise.PerlinNoise@{Roleworld.Engine.Map.Procedural.Noise.PerlinNoise}}
+
+
+Generate 2D Perlin noise based on a given seed.  
+
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_roleworld_1_1_engine_1_1_map_1_1_procedural_1_1_noise_1_1_perlin_noise_ad68dcaf4e6b3af96a0b87283b1bc5b66}{Perlin\+Noise}} (int seed)
+\begin{DoxyCompactList}\small\item\em Initializes the Perlin \doxylink{namespace_roleworld_1_1_engine_1_1_map_1_1_procedural_1_1_noise}{Noise} generator with a fixed seed. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_roleworld_1_1_engine_1_1_map_1_1_procedural_1_1_noise_1_1_perlin_noise_a88bf1748eca26b8c55ae4e745d919a1d}{Generate\+Raw\+Noise}} (float x, float y)
+\begin{DoxyCompactList}\small\item\em Generates 2D Perlin noise at the given coordinates (raw value, not normalized). \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_roleworld_1_1_engine_1_1_map_1_1_procedural_1_1_noise_1_1_perlin_noise_a07403ae11978f413c9e24acfb43c46e6}{Generate\+Normalized\+Noise}} (float x, float y)
+\begin{DoxyCompactList}\small\item\em Generates a normalized Perlin noise value in the range \mbox{[}0, 1\mbox{]} at the given 2D coordinates. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Generate 2D Perlin noise based on a given seed. 
+
+\label{doc-constructors}
+\Hypertarget{class_roleworld_1_1_engine_1_1_map_1_1_procedural_1_1_noise_1_1_perlin_noise_doc-constructors}
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_roleworld_1_1_engine_1_1_map_1_1_procedural_1_1_noise_1_1_perlin_noise_ad68dcaf4e6b3af96a0b87283b1bc5b66}\index{Roleworld.Engine.Map.Procedural.Noise.PerlinNoise@{Roleworld.Engine.Map.Procedural.Noise.PerlinNoise}!PerlinNoise@{PerlinNoise}}
+\index{PerlinNoise@{PerlinNoise}!Roleworld.Engine.Map.Procedural.Noise.PerlinNoise@{Roleworld.Engine.Map.Procedural.Noise.PerlinNoise}}
+\doxysubsubsection{\texorpdfstring{PerlinNoise()}{PerlinNoise()}}
+{\footnotesize\ttfamily \label{class_roleworld_1_1_engine_1_1_map_1_1_procedural_1_1_noise_1_1_perlin_noise_ad68dcaf4e6b3af96a0b87283b1bc5b66} 
+Roleworld.\+Engine.\+Map.\+Procedural.\+Noise.\+Perlin\+Noise.\+Perlin\+Noise (\begin{DoxyParamCaption}\item[{int}]{seed}{}\end{DoxyParamCaption})}
+
+
+
+Initializes the Perlin \doxylink{namespace_roleworld_1_1_engine_1_1_map_1_1_procedural_1_1_noise}{Noise} generator with a fixed seed. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em seed} & Seed for deterministic permutation generation\\
+\hline
+\end{DoxyParams}
+
+
+\label{doc-func-members}
+\Hypertarget{class_roleworld_1_1_engine_1_1_map_1_1_procedural_1_1_noise_1_1_perlin_noise_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_roleworld_1_1_engine_1_1_map_1_1_procedural_1_1_noise_1_1_perlin_noise_a07403ae11978f413c9e24acfb43c46e6}\index{Roleworld.Engine.Map.Procedural.Noise.PerlinNoise@{Roleworld.Engine.Map.Procedural.Noise.PerlinNoise}!GenerateNormalizedNoise@{GenerateNormalizedNoise}}
+\index{GenerateNormalizedNoise@{GenerateNormalizedNoise}!Roleworld.Engine.Map.Procedural.Noise.PerlinNoise@{Roleworld.Engine.Map.Procedural.Noise.PerlinNoise}}
+\doxysubsubsection{\texorpdfstring{GenerateNormalizedNoise()}{GenerateNormalizedNoise()}}
+{\footnotesize\ttfamily \label{class_roleworld_1_1_engine_1_1_map_1_1_procedural_1_1_noise_1_1_perlin_noise_a07403ae11978f413c9e24acfb43c46e6} 
+float Roleworld.\+Engine.\+Map.\+Procedural.\+Noise.\+Perlin\+Noise.\+Generate\+Normalized\+Noise (\begin{DoxyParamCaption}\item[{float}]{x}{, }\item[{float}]{y}{}\end{DoxyParamCaption})}
+
+
+
+Generates a normalized Perlin noise value in the range \mbox{[}0, 1\mbox{]} at the given 2D coordinates. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & X coordinate in continuous space.\\
+\hline
+{\em y} & Y coordinate in continuous space.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A float value between 0.\+0 and 1.\+0.
+\end{DoxyReturn}
+\Hypertarget{class_roleworld_1_1_engine_1_1_map_1_1_procedural_1_1_noise_1_1_perlin_noise_a88bf1748eca26b8c55ae4e745d919a1d}\index{Roleworld.Engine.Map.Procedural.Noise.PerlinNoise@{Roleworld.Engine.Map.Procedural.Noise.PerlinNoise}!GenerateRawNoise@{GenerateRawNoise}}
+\index{GenerateRawNoise@{GenerateRawNoise}!Roleworld.Engine.Map.Procedural.Noise.PerlinNoise@{Roleworld.Engine.Map.Procedural.Noise.PerlinNoise}}
+\doxysubsubsection{\texorpdfstring{GenerateRawNoise()}{GenerateRawNoise()}}
+{\footnotesize\ttfamily \label{class_roleworld_1_1_engine_1_1_map_1_1_procedural_1_1_noise_1_1_perlin_noise_a88bf1748eca26b8c55ae4e745d919a1d} 
+float Roleworld.\+Engine.\+Map.\+Procedural.\+Noise.\+Perlin\+Noise.\+Generate\+Raw\+Noise (\begin{DoxyParamCaption}\item[{float}]{x}{, }\item[{float}]{y}{}\end{DoxyParamCaption})}
+
+
+
+Generates 2D Perlin noise at the given coordinates (raw value, not normalized). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The X coordinate in continuous space.\\
+\hline
+{\em y} & The Y coordinate in continuous space.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A float value representing the raw noise (range approximately \mbox{[}-\/1, 1\mbox{]}).
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Engine/\+Map/\+Procedural/\+Noise/\mbox{\hyperlink{_perlin_noise_8cs}{Perlin\+Noise.\+cs}}\end{DoxyCompactItemize}
