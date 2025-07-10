@@ -15,6 +15,13 @@ namespace Roleworld.Engine.Map
             perlin = new PerlinNoise(seed);
         }
 
+        /// <summary>
+        /// Generates a new <see cref="MapData"/> instance filled with elevation, biomes,
+        /// and Voronoi cells using procedural generation algorithms.
+        /// </summary>
+        /// <param name="width">Width of the map in tiles.</param>
+        /// <param name="height">Height of the map in tiles.</param>
+        /// <returns>A fully populated <see cref="MapData"/> instance.</returns>
         public MapData Generate(int width, int height)
         {
             var data = new MapData(width, height);
