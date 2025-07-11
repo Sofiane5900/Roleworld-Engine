@@ -35,8 +35,8 @@ namespace Roleworld.Engine.Map
             // 2. Voronoi generation
             var voronoi = VoronoiGenerator.Generate(width, height, seed, 8000, 5);
 
-            // 3. affect terrain type to voronoi cells
-
+            // 3. Affect terrain type to voronoi cells
+            BiomeGenerator.Assign(voronoi.Cells, data.HeightMap);
 
             // 3. Generate noisy edges and apply to cells
             var randNoise = new Random(0); // Deterministic seed for noise

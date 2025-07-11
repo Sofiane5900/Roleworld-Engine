@@ -9,7 +9,7 @@ public static class HeightMapGenerator
 {
     /// <summary>
     /// Generate a normalized [0,1] matrix combining
-    /// Perlin noise and a Fallof ma.
+    /// Perlin noise and a Fallof map.
     /// </summary>
     /// <param name="width">width of the map</param>
     /// <param name="height">height of the map</param>
