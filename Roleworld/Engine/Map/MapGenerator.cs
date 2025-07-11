@@ -40,7 +40,7 @@ namespace Roleworld.Engine.Map
 
             // 3. Generate noisy edges and apply to cells
             var randNoise = new Random(0); // Deterministic seed for noise
-            ApplyNoisyBordersToCells(voronoi.Cells, voronoi.Edges, randNoise);
+            NoisyEdgeProcessor.ApplyNoisyBordersToCells(voronoi.Cells, voronoi.Edges, randNoise);
 
             // inject voronoi cells in map data to generate them
             data.Cells.Clear();
