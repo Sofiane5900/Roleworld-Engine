@@ -10,6 +10,8 @@ public class VoronoiCell
 
     public TerrainType TerrainType { get; set; }
 
+    public List<List<Vector2>> NoisyBorder { get; set; } = new();
+
     public VoronoiCell(VoronoiSite site)
     {
         Site = site;
