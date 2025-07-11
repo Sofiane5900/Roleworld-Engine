@@ -22,7 +22,7 @@
         <Folder Include="Assets\" />
         <Folder Include="Engine\Assets\Shaders\" />
         <Folder Include="Engine\Assets\Textures\" />
-        <Folder Include="Engine\Map\Generators\" />
+        <Folder Include="Engine\Map\Generator\" />
     </ItemGroup>
 
 </Project>
