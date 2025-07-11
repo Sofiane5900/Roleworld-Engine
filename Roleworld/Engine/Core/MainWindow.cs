@@ -52,7 +52,7 @@ public class MainWindow
     {
         _gl = _mainWindow.CreateOpenGL();
         _shader = new Shader(_gl);
-        _mapData = new MapGenerator(100).Generate(1024, 1024);
+        _mapData = new MapGenerator(100).Generate(1024, 1024, 100);
         _mapRenderer = new MapRenderer(_gl);
         _camera = new Camera2D();
         var input = _mainWindow.CreateInput();

@@ -14,7 +14,7 @@ public static class HeightMapGenerator
     /// <param name="width">width of the map</param>
     /// <param name="height">height of the map</param>
     /// <param name="seed">seed of the map</param>
-    /// <returns>A float matrix with datas of elevation</returns>
+    /// <returns>A float matrix with data of elevation</returns>
     public static float[,] Generate(int width, int height, int seed = 0)
     {
         var perlin = new PerlinNoise(seed);

@@ -35,7 +35,7 @@ namespace Roleworld.Engine.Map
             // 2. Voronoi generation
             var voronoi = VoronoiGenerator.Generate(width, height, seed, 8000, 5);
 
-            // affect terrain type to voronoi cells
+            // 3. affect terrain type to voronoi cells
             foreach (var cell in voronoi.Cells)
             {
                 int cx = (int)cell.Site.X;
