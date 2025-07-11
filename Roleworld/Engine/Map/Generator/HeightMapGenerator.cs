@@ -2,6 +2,9 @@ using Roleworld.Engine.Map.Procedural.Noise;
 
 namespace Roleworld.Engine.Map.Generators;
 
+/// <summary>
+///  This class has the responsibility of generating the noise of the map
+/// </summary>
 public static class HeightMapGenerator
 {
     /// <summary>
@@ -15,7 +18,7 @@ public static class HeightMapGenerator
     public static float[,] Generate(int width, int height, int seed = 0)
     {
         var perlin = new PerlinNoise(seed);
-        var falloff = Procedural.Noise.FallofMapGenerator.Generate(width, height);
+        var falloff = Procedural.Noise.FallofMap.Generate(width, height);
         float[,] map = new float[width, height];
         float scale = 150f;
 
