@@ -4,7 +4,7 @@ namespace Roleworld.Engine.Map.Voronoi;
 
 public class NoisyEdgeProcessor
 {
-    private void ApplyNoisyBordersToCells(
+    public static void ApplyNoisyBordersToCells(
         List<VoronoiCell> cells,
         List<VoronoiEdge> edges,
         Random rng
@@ -50,7 +50,7 @@ public class NoisyEdgeProcessor
         }
     }
 
-    private bool PointsMatch(
+    public static bool PointsMatch(
         System.Numerics.Vector2 p1,
         System.Numerics.Vector2 p2,
         float epsilon = 1.0f
