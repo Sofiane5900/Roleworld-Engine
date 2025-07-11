@@ -29,24 +29,11 @@ namespace Roleworld.Engine.Map
         {
             var data = new MapData(width, height);
 
+            // 1. Perlin & Fallofmap generator
             data.HeightMap = HeightMapGenerator.Generate(width, height, seed);
 
             // 2. Voronoi generation
-            voronoi = new Voronoi.Voronoi(0, 0, width, height);
-
-            int nbSites = 8000;
-            var rand = new Random();
-
-            for (int i = 0; i < nbSites; i++)
-            {
-                float x = (float)(rand.NextDouble() * width);
-                float y = (float)(rand.NextDouble() * height);
-                voronoi.AddSite(new VoronoiSite(x, y));
-            }
-
-            var bounds = new RectangleF(0, 0, width, height);
-            voronoi.Generate();
-            voronoi.Relax(5, 5);
+            var voronoi = VoronoiGenerator.Generate(width, height, seed, 8000, 5);
 
             // affect terrain type to voronoi cells
             foreach (var cell in voronoi.Cells)
