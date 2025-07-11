@@ -1,5 +1,6 @@
 using System.Diagnostics;
 using System.Drawing;
+using Roleworld.Engine.Map.Generators;
 using Roleworld.Engine.Map.Procedural;
 using Roleworld.Engine.Map.Procedural.Noise;
 using Roleworld.Engine.Map.Voronoi;
@@ -24,29 +25,11 @@ namespace Roleworld.Engine.Map
         /// <param name="width">Width of the map in tiles.</param>
         /// <param name="height">Height of the map in tiles.</param>
         /// <returns>A fully populated <see cref="MapData"/> instance.</returns>
-        public MapData Generate(int width, int height)
+        public MapData Generate(int width, int height, int seed)
         {
             var data = new MapData(width, height);
 
-            // 1. Perlin and fallof generation
-            float[,] falloffMap = FallofMapGenerator.Generate(width, height);
-            float scale = 150f;
-
-            for (int x = 0; x < width; x++)
-            {
-                for (int y = 0; y < height; y++)
-                {
-                    float sampleX = x / scale;
-                    float sampleY = y / scale;
-
-                    float perlinValue = perlin.GenerateNormalizedNoise(sampleX, sampleY);
-                    float falloffValue = falloffMap[x, y];
-
-                    float heightValue = Math.Clamp(perlinValue - falloffValue, 0f, 1f);
-                    data.HeightMap[x, y] = heightValue;
-                    data.BiomeMap[x, y] = GetTerrainType(heightValue);
-                }
-            }
+            data.HeightMap = HeightMapGenerator.Generate(width, height, seed);
 
             // 2. Voronoi generation
             voronoi = new Voronoi.Voronoi(0, 0, width, height);
