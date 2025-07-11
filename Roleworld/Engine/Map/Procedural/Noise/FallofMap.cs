@@ -1,6 +1,6 @@
 namespace Roleworld.Engine.Map.Procedural.Noise;
 
-public static class FallofMapGenerator
+public static class FallofMap
 {
     /// <summary>
     /// Generates a 2D Falloff Map that smoothly transitions from the center (value near 0)

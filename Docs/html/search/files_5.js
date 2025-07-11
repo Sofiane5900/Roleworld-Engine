@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['perlinnoise_2ecs_0',['PerlinNoise.cs',['../_perlin_noise_8cs.html',1,'']]],
-  ['program_2ecs_1',['Program.cs',['../_program_8cs.html',1,'']]]
+  ['noisyedge_2ecs_0',['NoisyEdge.cs',['../_noisy_edge_8cs.html',1,'']]],
+  ['noisyedgegenerator_2ecs_1',['NoisyEdgeGenerator.cs',['../_noisy_edge_generator_8cs.html',1,'']]]
 ];

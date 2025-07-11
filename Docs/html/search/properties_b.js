@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['y_0',['Y',['../class_roleworld_1_1_engine_1_1_camera2_d.html#a059938fee60be389f473f4a615c08b18',1,'Roleworld::Engine::Camera2D']]]
+  ['x_0',['X',['../class_roleworld_1_1_engine_1_1_camera2_d.html#af0f05ae0f24b5f97f644f8ebe061b442',1,'Roleworld::Engine::Camera2D']]]
 ];
