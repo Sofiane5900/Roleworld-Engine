@@ -36,16 +36,7 @@ namespace Roleworld.Engine.Map
             var voronoi = VoronoiGenerator.Generate(width, height, seed, 8000, 5);
 
             // 3. affect terrain type to voronoi cells
-            foreach (var cell in voronoi.Cells)
-            {
-                int cx = (int)cell.Site.X;
-                int cy = (int)cell.Site.Y;
-                float heightValue = data.HeightMap[
-                    Math.Clamp(cx, 0, width - 1),
-                    Math.Clamp(cy, 0, height - 1)
-                ];
-                cell.TerrainType = GetTerrainType(heightValue);
-            }
+
 
             // 3. Generate noisy edges and apply to cells
             var randNoise = new Random(0); // Deterministic seed for noise
@@ -115,18 +106,6 @@ namespace Roleworld.Engine.Map
         )
         {
             return System.Numerics.Vector2.Distance(p1, p2) < epsilon;
-        }
-
-        private TerrainType GetTerrainType(float height)
-        {
-            return height switch
-            {
-                < 0.3f => TerrainType.Water,
-                < 0.4f => TerrainType.Sand,
-                < 0.6f => TerrainType.Grass,
-                < 0.8f => TerrainType.Rock,
-                _ => TerrainType.Snow,
-            };
         }
     }
 }
