@@ -15,9 +15,7 @@ public class MainWindow
     private static IWindow _mainWindow = null!;
 
     // Camera & Input
-    private static Camera2D _camera = null!;
-    private static CameraController _cameraController = null!;
-    private static IKeyboard _keyboard = null!;
+
 
     private static GraphicsContext _gfx;
     private static WorldManager _world;
@@ -46,7 +44,7 @@ public class MainWindow
 
     private static unsafe void OnLoad()
     {
-        _gfx = new GraphicsContext();
+        _gfx = new GraphicsContext(_mainWindow);
         _world = new WorldManager(_gfx, _mainWindow, 1024, 1024, 100);
         Console.WriteLine("Loading main window..");
     }
