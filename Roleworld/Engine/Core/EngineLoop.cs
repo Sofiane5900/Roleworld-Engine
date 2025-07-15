@@ -1,6 +1,3 @@
 namespace Roleworld.Engine.Core;
 
-public class GameLoop
-{
-    
-}
+public class EngineLoop { }
