@@ -14,14 +14,13 @@ public class MainWindow
     // Window & Rendering
     private static IWindow _mainWindow = null!;
 
-    // Map
-    private static MapRenderer _mapRenderer = null!;
-    private static MapData _mapData = null!;
-
     // Camera & Input
     private static Camera2D _camera = null!;
     private static CameraController _cameraController = null!;
     private static IKeyboard _keyboard = null!;
+
+    private static GraphicsContext _gfx;
+    private static WorldManager _world;
 
     /// <summary>
     ///  Generate the main window of Roleworld engine
@@ -47,21 +46,15 @@ public class MainWindow
 
     private static unsafe void OnLoad()
     {
-        GraphicsContext.Initialize(_mainWindow);
-        _mapData = MapGenerator.Generate(width: 1024, height: 1024, seed: 100);
-        _mapRenderer = new MapRenderer(GraphicsContext.Gl);
-        _camera = new Camera2D();
-        var input = _mainWindow.CreateInput();
-        _keyboard = input.Keyboards[0];
-        _cameraController = new CameraController(_camera, _keyboard);
-        _mapRenderer.Build(_mapData);
-
+        _gfx = new GraphicsContext();
+        _world = new WorldManager(_gfx, _mainWindow, 1024, 1024, 100);
         Console.WriteLine("Loading main window..");
     }
 
     private static unsafe void OnRender(double deltaTime)
     {
-        GraphicsContext.Gl.Clear(ClearBufferMask.ColorBufferBit);
+        _gfx.BeginFrame();
+
         GraphicsContext.Shader.Use();
         Matrix4x4 projection = _camera.GetProjectionMatrix(
             _mainWindow.FramebufferSize.X,
@@ -69,8 +62,6 @@ public class MainWindow
         );
 
         GraphicsContext.Shader.SetMatrix4("uProjection", projection);
-
-        _mapRenderer.Render();
     }
 
     private static void OnUpdate(double deltaTime)
