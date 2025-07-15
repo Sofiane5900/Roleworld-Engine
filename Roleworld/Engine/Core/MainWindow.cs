@@ -58,5 +58,6 @@ public class MainWindow
     private static void OnUpdate(double deltaTime)
     {
         _world.Draw();
+        _world.Update(deltaTime);
     }
 }
