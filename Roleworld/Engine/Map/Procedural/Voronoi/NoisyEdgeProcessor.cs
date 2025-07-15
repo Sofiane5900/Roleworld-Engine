@@ -4,6 +4,12 @@ namespace Roleworld.Engine.Map.Voronoi;
 
 public class NoisyEdgeProcessor
 {
+    /// <summary>
+    /// Apply the <c>Noisy Edge</c> algorithm to all Voronoi Cells
+    /// </summary>
+    /// <param name="cells">Complete collection of <see cref="VoronoiCell"/> which forms the diagram</param>
+    /// <param name="edges">Edges of the cells</param>
+    /// <param name="rng">Random number for the noise</param>
     public static void ApplyNoisyBordersToCells(
         List<VoronoiCell> cells,
         List<VoronoiEdge> edges,
@@ -50,6 +56,13 @@ public class NoisyEdgeProcessor
         }
     }
 
+    /// <summary>
+    /// Test if two vertices can be considered the same point
+    /// </summary>
+    /// <param name="p1">First 2D vertices</param>
+    /// <param name="p2">Second 2D vertices</param>
+    /// <param name="epsilon"></param>
+    /// <returns>Maximum tolerance , by default 1 float = 1 pixel in the render</returns>
     private static bool PointsMatch(
         System.Numerics.Vector2 p1,
         System.Numerics.Vector2 p2,
