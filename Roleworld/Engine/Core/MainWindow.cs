@@ -1,5 +1,6 @@
 using System.Drawing;
 using System.Numerics;
+using Roleworld.Engine.Graphics;
 using Roleworld.Engine.Map;
 using Roleworld.Engine.Rendering;
 using Roleworld.Engine.Textures;
@@ -14,8 +15,6 @@ public class MainWindow
 {
     // Window & Rendering
     private static IWindow _mainWindow = null!;
-    private static GL _gl = null!;
-    private static Shader _shader = null!;
 
     // Map
     private static MapRenderer _mapRenderer = null!;
@@ -50,10 +49,9 @@ public class MainWindow
 
     private static unsafe void OnLoad()
     {
-        _gl = _mainWindow.CreateOpenGL();
-        _shader = new Shader(_gl);
-        _mapData = new MapGenerator(100).Generate(1024, 1024, 100);
-        _mapRenderer = new MapRenderer(_gl);
+        GraphicsContext.Initialize(_mainWindow);
+        _mapData = MapGenerator.Generate(width: 1024, height: 1024, seed: 100);
+        _mapRenderer = new MapRenderer(GraphicsContext.Gl);
         _camera = new Camera2D();
         var input = _mainWindow.CreateInput();
         _keyboard = input.Keyboards[0];
@@ -61,19 +59,18 @@ public class MainWindow
         _mapRenderer.Build(_mapData);
 
         Console.WriteLine("Loading main window..");
-        _gl.ClearColor(Color.CornflowerBlue);
     }
 
     private static unsafe void OnRender(double deltaTime)
     {
-        _gl.Clear(ClearBufferMask.ColorBufferBit);
-        _shader.Use();
+        GraphicsContext.Gl.Clear(ClearBufferMask.ColorBufferBit);
+        GraphicsContext.Shader.Use();
         Matrix4x4 projection = _camera.GetProjectionMatrix(
             _mainWindow.FramebufferSize.X,
             _mainWindow.FramebufferSize.Y
         );
 
-        _shader.SetMatrix4("uProjection", projection);
+        GraphicsContext.Shader.SetMatrix4("uProjection", projection);
 
         _mapRenderer.Render();
     }
