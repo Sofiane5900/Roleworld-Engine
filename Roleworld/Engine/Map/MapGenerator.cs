@@ -10,13 +10,7 @@ namespace Roleworld.Engine.Map
 {
     public class MapGenerator
     {
-        private readonly PerlinNoise perlin;
         private Voronoi.Voronoi voronoi;
-
-        public MapGenerator(int seed)
-        {
-            perlin = new PerlinNoise(seed);
-        }
 
         /// <summary>
         /// Generates a new <see cref="MapData"/> instance filled with elevation, biomes,
@@ -25,11 +19,11 @@ namespace Roleworld.Engine.Map
         /// <param name="width">Width of the map in tiles.</param>
         /// <param name="height">Height of the map in tiles.</param>
         /// <returns>A fully populated <see cref="MapData"/> instance.</returns>
-        public MapData Generate(int width, int height, int seed)
+        public static MapData Generate(int width, int height, int seed)
         {
             var data = new MapData(width, height);
 
-            // 1. Perlin & Fallofmap generator
+            // 1. Perlin & Fallofmap generation
             data.HeightMap = HeightMapGenerator.Generate(width, height, seed);
 
             // 2. Voronoi generation
