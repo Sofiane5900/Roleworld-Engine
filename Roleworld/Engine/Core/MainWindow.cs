@@ -1,9 +1,7 @@
-using System.Drawing;
 using System.Numerics;
 using Roleworld.Engine.Graphics;
 using Roleworld.Engine.Map;
 using Roleworld.Engine.Rendering;
-using Roleworld.Engine.Textures;
 using Silk.NET.Input;
 using Silk.NET.Maths;
 using Silk.NET.OpenGL;
