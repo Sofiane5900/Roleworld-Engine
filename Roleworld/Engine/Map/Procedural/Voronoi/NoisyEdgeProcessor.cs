@@ -50,7 +50,7 @@ public class NoisyEdgeProcessor
         }
     }
 
-    public static bool PointsMatch(
+    private static bool PointsMatch(
         System.Numerics.Vector2 p1,
         System.Numerics.Vector2 p2,
         float epsilon = 1.0f
