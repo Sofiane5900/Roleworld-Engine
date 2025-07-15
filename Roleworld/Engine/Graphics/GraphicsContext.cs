@@ -15,7 +15,15 @@ public class GraphicsContext
     public uint ViewportWidth { get; private set; }
     public uint ViewportHeight { get; private set; }
 
-    public GraphicsContext(IWindow window) { }
+    public GraphicsContext(IWindow window)
+    {
+        _gl = window.CreateOpenGL();
+        _shader = new Shader(_gl);
+
+        ViewportWidth = (uint)window.FramebufferSize.X;
+        ViewportHeight = (uint)window.FramebufferSize.Y;
+        _gl.ClearColor(Color.DarkGray);
+    }
 
     public void BeginFrame() => Gl.Clear(ClearBufferMask.ColorBufferBit);
 }
