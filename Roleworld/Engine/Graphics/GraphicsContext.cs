@@ -12,6 +12,9 @@ public class GraphicsContext
     public GL Gl => _gl;
     public Shader Shader => _shader;
 
+    public uint ViewportWidth { get; private set; }
+    public uint ViewportHeight { get; private set; }
+
     public void Initialize(IWindow window)
     {
         _gl = window.CreateOpenGL();
