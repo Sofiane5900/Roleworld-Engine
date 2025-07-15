@@ -18,4 +18,6 @@ public class GraphicsContext
         _shader = new Shader(_gl);
         _gl.ClearColor(Color.Blue);
     }
+
+    public void BeginFrame() => Gl.Clear(ClearBufferMask.ColorBufferBit);
 }
