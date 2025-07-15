@@ -22,7 +22,6 @@ public class WorldManager
     public WorldManager(GraphicsContext gfx, IWindow window, int width, int height, int seed)
     {
         _gfx = gfx;
-        // _gfx.Initialize(_mainWindow);
         _mapData = MapGenerator.Generate(width, height, seed);
         _mapRenderer = new MapRenderer(gfx.Gl);
         _mapRenderer.Build(_mapData);
@@ -40,5 +39,7 @@ public class WorldManager
             _gfx.ViewportWidth,
             _gfx.ViewportHeight
         );
+        _gfx.Shader.SetMatrix4("uProjection", projectionMatrix);
+        _mapRenderer.Render();
     }
 }
