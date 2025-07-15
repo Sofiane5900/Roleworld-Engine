@@ -19,5 +19,5 @@ public class GraphicsContext
         _gl.ClearColor(Color.Blue);
     }
 
-    public void BeginFrame() => Gl.Clear(ClearBufferMask.ColorBufferBit);
+    public static void BeginFrame() => Gl.Clear(ClearBufferMask.ColorBufferBit);
 }
