@@ -12,7 +12,10 @@ public class MapData
     public int Width { get; }
     public int Height { get; }
     public float[,] HeightMap { get; set; }
-    public Biome[,] BiomeMap { get; set; }
+    public TerrainType[,] BiomeMap { get; set; }
+    public float[,] MoistureMap { get; set; }
+
+    public Biome[,] Biomes { get; set; }
 
     public List<VoronoiCell> Cells { get; } = new();
     public List<NoisyEdge> NoisyEdges { get; set; }
