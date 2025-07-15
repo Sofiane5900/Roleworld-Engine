@@ -52,18 +52,11 @@ public class MainWindow
     private static unsafe void OnRender(double deltaTime)
     {
         _gfx.BeginFrame();
-
-        GraphicsContext.Shader.Use();
-        Matrix4x4 projection = _camera.GetProjectionMatrix(
-            _mainWindow.FramebufferSize.X,
-            _mainWindow.FramebufferSize.Y
-        );
-
-        GraphicsContext.Shader.SetMatrix4("uProjection", projection);
+        _world.Draw();
     }
 
     private static void OnUpdate(double deltaTime)
     {
-        _cameraController.Update(deltaTime);
+        _world.Draw();
     }
 }
