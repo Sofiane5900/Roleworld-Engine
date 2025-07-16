@@ -2,6 +2,8 @@ namespace Roleworld.Engine.Map;
 
 public enum Biome
 {
+    Water,
+    Sand,
     Snow,
     Tundra,
     Bare,
