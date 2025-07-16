@@ -13,7 +13,7 @@ public class MoistureMapGenerator
     {
         var perlin = new PerlinNoise(seed * 7919);
         float[,] map = new float[width, height];
-        float scale = 500f;
+        float scale = 250f;
 
         for (int x = 0; x < width; x++)
         {

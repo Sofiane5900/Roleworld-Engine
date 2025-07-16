@@ -2,7 +2,8 @@ namespace Roleworld.Engine.Map;
 
 public enum Biome
 {
-    Water,
+    DeepWater,
+    CoastWater,
     Sand,
     Snow,
     Tundra,

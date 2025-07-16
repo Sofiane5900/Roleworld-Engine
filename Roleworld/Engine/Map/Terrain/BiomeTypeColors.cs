@@ -11,7 +11,8 @@ public static class BiomeTypeColors
     public static Vector3 GetColor(this Biome biome) =>
         biome switch
         {
-            Biome.Water => new Vector3(0.02f, 0.30f, 0.70f), // deep-blue water
+            Biome.DeepWater => new Vector3(0.02f, 0.22f, 0.55f), // dark open-sea blue
+            Biome.CoastWater => new Vector3(0.04f, 0.36f, 0.75f), // lighter coastal blue
             Biome.Sand => new Vector3(0.93f, 0.86f, 0.55f), // pale beach / dune
 
             // Polar / high-altitude biomes
