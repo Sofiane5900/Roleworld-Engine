@@ -14,9 +14,6 @@ public class MainWindow
     // Window & Rendering
     private static IWindow _mainWindow = null!;
 
-    // Camera & Input
-
-
     private static GraphicsContext _gfx;
     private static WorldManager _world;
 

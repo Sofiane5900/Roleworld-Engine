@@ -22,6 +22,7 @@ namespace Roleworld.Engine.Map
         public static MapData Generate(int width, int height, int seed)
         {
             var data = new MapData(width, height);
+            var moisture = MoistureMapGenerator.Generate(width, height, seed);
 
             // 1. Perlin & Fallofmap generation
             data.HeightMap = HeightMapGenerator.Generate(width, height, seed);
@@ -30,7 +31,7 @@ namespace Roleworld.Engine.Map
             var voronoi = VoronoiGenerator.Generate(width, height, seed, 8000, 5);
 
             // 3. Affect terrain type to voronoi cells
-            BiomeGenerator.Assign(voronoi.Cells, data.HeightMap);
+            BiomeGenerator.Assign(voronoi.Cells, data.HeightMap, moisture);
 
             // 3. Generate noisy edges and apply to cells
             var randNoise = new Random(0); // Deterministic seed for noise

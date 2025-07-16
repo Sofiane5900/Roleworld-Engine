@@ -30,7 +30,7 @@ public class MapRenderer
 
         foreach (var cell in map.Cells)
         {
-            Vector3 color = cell.TerrainType.GetColor();
+            Vector3 color = cell.BiomeType.GetColor();
 
             var sortedVertices = cell.Vertices;
 
