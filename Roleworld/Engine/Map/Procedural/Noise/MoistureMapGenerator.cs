@@ -2,6 +2,13 @@ namespace Roleworld.Engine.Map.Procedural.Noise;
 
 public class MoistureMapGenerator
 {
+    /// <summary>
+    /// Generate a moisture matrix normalized ( 0 = very dry, 1 = very humid)
+    /// </summary>
+    /// <param name="width">Width in pixels </param>
+    /// <param name="height">Height in pixels</param>
+    /// <param name="seed">Seed for deterministic generation</param>
+    /// <returns>float[width,height] containing moisture</returns>
     public float[,] Generate(int width, int height, int seed)
     {
         var perlin = new PerlinNoise(seed * 7919);
