@@ -9,7 +9,7 @@ public class MoistureMapGenerator
     /// <param name="height">Height in pixels</param>
     /// <param name="seed">Seed for deterministic generation</param>
     /// <returns>float[width,height] containing moisture</returns>
-    public float[,] Generate(int width, int height, int seed)
+    public static float[,] Generate(int width, int height, int seed)
     {
         var perlin = new PerlinNoise(seed * 7919);
         float[,] map = new float[width, height];
