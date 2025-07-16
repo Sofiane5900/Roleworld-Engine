@@ -18,7 +18,7 @@ public static class HeightMapGenerator
     public static float[,] Generate(int width, int height, int seed = 0)
     {
         var perlin = new PerlinNoise(seed);
-        var falloff = Procedural.Noise.FallofMap.Generate(width, height);
+        var falloff = FallofMap.Generate(width, height);
         float[,] map = new float[width, height];
         float scale = 150f;
 

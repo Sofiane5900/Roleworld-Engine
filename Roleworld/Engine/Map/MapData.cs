@@ -15,7 +15,6 @@ public class MapData
     public Biome[,] BiomeMap { get; set; }
     public float[,] MoistureMap { get; set; }
     public List<VoronoiCell> Cells { get; } = new();
-    public List<NoisyEdge> NoisyEdges { get; set; }
 
     public MapData(int width, int height)
     {

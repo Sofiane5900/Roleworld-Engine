@@ -2,7 +2,7 @@ using System.Numerics;
 
 namespace Roleworld.Engine.Map;
 
-public static class TerrainTypeColors
+public static class BiomeTypeColors
 {
     public static Vector3 GetColor(this TerrainType terrain)
     {
