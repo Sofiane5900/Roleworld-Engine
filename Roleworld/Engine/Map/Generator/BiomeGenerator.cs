@@ -34,7 +34,7 @@ public static class BiomeGenerator
     /// </summary>
     private static Biome ToBiome(float elevation, float moisture)
     {
-        const float SeaLevel = 0.30f; // deep ocean below
+        const float SeaLevel = 0.32f; // deep ocean below
         const float CoastTop = 0.34f; // shallow / coast water until this height
         const float BeachSand = 0.40f;
 

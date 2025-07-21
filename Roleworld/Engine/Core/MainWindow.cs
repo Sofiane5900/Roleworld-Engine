@@ -39,14 +39,14 @@ public class MainWindow
         _mainWindow.Run();
     }
 
-    private static unsafe void OnLoad()
+    private static void OnLoad()
     {
         _gfx = new GraphicsContext(_mainWindow);
         _world = new WorldManager(_gfx, _mainWindow, 1024, 1024, 100);
         Console.WriteLine("Loading main window..");
     }
 
-    private static unsafe void OnRender(double deltaTime)
+    private static void OnRender(double deltaTime)
     {
         _gfx.BeginFrame();
         _world.Draw();
